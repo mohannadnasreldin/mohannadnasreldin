@@ -1,16 +1,19 @@
-### Hi there 👋
+### Hello, World! 👋
+ 
 
-<!--
-**mohannadnasreldin/mohannadnasreldin** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+🚀 Full-stack developer | 🌐 Web enthusiast | 💡 Constant learner
 
-Here are some ideas to get you started:
+📚 Computer Science Student with a passion for turning ideas into code.
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+💻 Currently, I'm exploring the wonderful world of web development, diving into the front-end with HTML, CSS, and JavaScript, and the back-end with Python, Node.js, and databases.
+
+🛠️ I love solving problems and creating user-friendly applications that make a positive impact. 
+
+🌟 Open source enthusiast | 📖 Tech blogger | 🎸 Music lover
+
+🔗 Let's connect and collaborate on some exciting projects!
+
+📫 Reach me at: [mohannadalshrif126@gmail.com]
+
+📌 Check out my repositories below and feel free to contribute or open issues. Happy coding! 🚴
+
