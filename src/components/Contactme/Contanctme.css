@@ -1,0 +1,213 @@
+.contanctTiltle{
+    text-align: center;
+    color: white;
+    font-size: 60px;
+    font-weight: bold;
+    /* margin-left: 42px; */
+    text-shadow: 2px 5px 8px var(--first-color);
+}
+.smalltiltlecontact{
+    text-align: center;
+    color: var(--first-color);
+    margin-top: -12px;
+    letter-spacing: 1.5px;
+    margin-bottom: 55px;
+    /* margin-left: 35px; */
+}
+.contact{
+    text-align: center !important;
+    align-items: center !important;
+    width: 100%;
+}
+.data{
+    display: flex;
+    justify-content: center ;
+    cursor: pointer;
+}
+
+.number{
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+    margin: 10px 20px 5px 30px;
+    transition: .5s all;
+}
+
+.email{
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+    margin: 10px 20px 5px 30px;
+    transition: .5s all;
+}
+.number:hover{
+    transform: scale(1.1);
+    
+}
+.email:hover{
+    transform: scale(1.1);
+}
+.phone-icon{
+    color: var(--first-color);
+    margin-right: 15px;
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.email-icon{
+    color: var(--first-color);
+    margin-right: 15px;
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+.number h4{
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+.email h4{
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
+.email p{
+    color: rgb(142, 137, 137);
+}
+
+.number p{
+    color: rgb(142, 137, 137);
+}
+
+.form{
+
+}
+label{
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    margin: 30px 30px;
+}
+input{
+    width: 35%;
+    border-radius: 10px;
+    padding: 5px 10px 5px 5px ;
+    border: 1px solid var(--first-color);
+    /* font-size: 20px; */
+    color: white;
+    font-weight: bold;
+    margin: 15px 30px !important; 
+}
+textarea{
+    border-radius: 10px;
+    padding: 5px 10px 5px 5px ;
+    border: 1px solid var(--first-color);
+    /* font-size: 20px; */
+    color: white;
+    font-weight: bold;
+    margin: 10px 30px !important;
+    width: 35%; 
+}
+.alert{
+    width: 35%;
+    padding: 5px 20px !important;
+    display: flex;
+    justify-content: space-between;
+    margin: 0px auto;
+}
+.alert i{
+    background-color: transparent;
+    margin-top: 5px;
+    cursor: pointer;
+}
+@media screen and (min-width:360px) and (max-width: 362px) {
+    .contact{
+        width: 100% !important;
+        height: 114vh !important;
+    }
+}
+@media screen and (max-width: 767px) {
+    .alert{
+        width: 90%;
+        padding: 5px 20px !important;
+        display: flex;
+        justify-content: space-between;
+        margin-left: 30px !important;
+    }
+    .alert i{
+        background-color: transparent;
+        margin-top: 5px;
+        cursor: pointer;
+    }
+    .contact{
+        width: 100% !important;
+        height: 108vh;
+    }
+    .contanctTiltle{
+        text-align: center;
+        margin-top: 30px;
+        margin-left: 11px;
+    }
+
+    input{
+        width: 90%;
+        border-radius: 10px;
+        padding: 5px 10px 5px 5px ;
+        border: 1px solid var(--first-color);
+        /* font-size: 20px; */
+        color: white;
+        font-weight: bold;
+        margin: 15px 30px !important; 
+    }
+    textarea{
+        border-radius: 10px;
+        padding: 5px 10px 5px 5px ;
+        border: 1px solid var(--first-color);
+        /* font-size: 20px; */
+        color: white;
+        font-weight: bold;
+        margin: 10px 30px !important;
+        width: 90%; 
+    }
+    .phone-icon ,.email-icon {
+        color: var(--first-color);
+        margin-right: 15px;
+        font-size: 40px;
+        
+    }
+    .phone-icon {
+        margin-bottom: 25px;
+    }
+    
+    .number h4 , .email h4{
+        color: white;
+        font-size: 40px;
+        font-weight: bold;
+        letter-spacing: 1.5px;
+    }
+    .data{
+        display: block;
+        justify-content: center ;
+        cursor: pointer;
+    }
+    .number{
+        display: flex;
+        justify-content: center ;
+        align-items: center;
+        margin: 10px 20px 5px 30px;
+        transition: .5s all;
+        margin-top: -15px;
+    }
+    .contanctTiltle{
+        margin-top: 65px !important;
+    }
+    .contact-button{
+        margin-left: 20px;
+    }
+}
+@media screen and (min-width:360px) and (max-width: 362px) {
+    .contact{
+        width: 100% !important;
+        height: 116vh;
+    }
+}

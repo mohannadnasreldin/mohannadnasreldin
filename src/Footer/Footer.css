@@ -1,0 +1,21 @@
+
+.footer{
+    height: fit-content;
+    color: white;
+    text-align: center;
+    padding: 10px 0px 5px 0px;
+    border-top: 1px solid var(--first-color);
+}
+.footer .icons i{
+    margin: 8px 5px;
+    /* color: var(--first-color); */
+     
+     color: rgb(141, 137, 137);
+    transition: .5s;
+}
+.footer .icons i:hover{
+    color: var(--first-color);
+}
+.footer .credited{
+    margin: 3px 0px;
+}

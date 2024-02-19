@@ -1,0 +1,43 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Borel&display=swap');
+ 
+.active{
+    color: red !important;
+    cursor: pointer; 
+}
+.nav{
+    background-color:  var(--body-color) !important;
+}
+.navbar-brand{
+    color: var(--first-color) !important;
+    background-color: transparent !important;
+    font-family: "Agbalumo", system-ui;}
+.NavColor{
+    color: white !important;
+    transition: .9s all !important;
+    margin: 0px 8px;
+    font-weight: 600 !important;
+    font-family: "Agbalumo", cursive;
+
+}
+.NavColor:hover{
+    color: var(--first-color) !important;
+}
+.navbar{
+    /* width: 100; */
+    border-bottom: 1px solid var(--first-color);
+    font-family: "Agbalumo", system-ui;
+    /* background-color: transparent !important; */
+    /* position: fixed !important; */
+    /* z-index: 999999 !important; */
+}
+.nav-button a , .nav-button i{
+    color: white;
+    background-color: transparent;
+    text-decoration: none;
+    font-family: "Agbalumo", cursive;
+}
+
+.navbar-toggler{
+    margin-bottom: 3px !important;
+}

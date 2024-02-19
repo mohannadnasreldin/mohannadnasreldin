@@ -1,0 +1,107 @@
+.services-container{
+    height: 85vh;
+}
+.services-title{
+    text-align: center;
+    color: white;
+    font-size: 60px;
+    font-weight: bold;
+    margin-left: -30px;
+    text-shadow: 2px 5px 8px var(--first-color);
+}
+.services-subtitle{
+    text-align: center;
+    color: var(--first-color);
+    margin-top: -12px;
+    letter-spacing: 1.5px;
+    margin-bottom: 70px;
+    margin-left: -33px;
+}
+.services{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.service{
+    padding-top: 85px;
+    width: 250px;
+    height: 320px;
+    /* background-color: aqua; */
+    margin-bottom: 5px;
+    padding-left: 35px;
+    box-shadow: 1px 10px 15px rgba(74, 67, 164, 0.612);
+    /* border: .5px solid rgba(0, 0, 0, 1); */
+    border: .5px solid var(--first-color);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .5s;
+}
+.service:hover{
+    transform: scale(1.2);
+    box-shadow: 2px 5px 4px rgb(92, 80, 80);
+}
+.service h3{
+    /* background-color: aqua; */
+    color: white;
+    font-weight: bold;
+}
+.service a{
+    /* background-color: aqua; */
+    cursor: pointer;
+    margin-top: 20px !important;
+    color: var(--first-color);
+    text-decoration: none;
+
+}
+.icon-service{
+    /* background-color: aqua; */
+    color: var(--first-color);
+    margin-bottom: 20px;
+    font-size: 35px;
+    font-weight: bold;
+
+
+}
+
+
+/* @media screen and (max-width: 390px) {} */
+@media (min-width: 350px) and (max-width: 390px) {
+    .services-title{
+        text-align: center;
+        color: white;
+        font-size: 60px;
+        font-weight: bold;
+        margin-left: 20px;
+        margin-top: 20px;
+        text-shadow: 2px 5px 8px var(--first-color);
+    }
+    .services-subtitle{
+        text-align: center;
+        color: var(--first-color);
+        margin-top: -12px;
+        letter-spacing: 1.5px;
+        margin-bottom: 70px;
+        margin-left: 25px;
+    }
+
+}
+@media screen and (max-width: 767px) {
+    .services-container{
+        height: 165vh !important;
+    }
+    .services{
+        display: block;
+    }
+    .service{
+        padding-top: 85px;
+        width: 250px;
+        height: 320px;
+        margin: 15px auto 30px auto;
+        padding-left: 35px;
+        box-shadow: 1px 4px 10px rgba(74, 67, 164, 0.612);
+        border: .5px solid var(--first-color);
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all .5s;
+    }
+}

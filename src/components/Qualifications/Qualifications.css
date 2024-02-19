@@ -1,0 +1,247 @@
+.qualifications{
+    height: 100vh;
+}
+.qualificationsTiltle{
+    text-align: center;
+    color: white;
+    font-size: 60px;
+    font-weight: bold;
+    margin-left: -30px;
+    text-shadow: 2px 5px 8px var(--first-color);
+}
+.smalltiltlequalifications{
+    text-align: center;
+    color: var(--first-color);
+    margin-top: -12px;
+    letter-spacing: 1.5px;
+    margin-bottom: 70px;
+    margin-left: -33px;
+}
+
+.qualifications-tabs{
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 30px;
+}
+.qualifications-button{
+    font-size: 35px;
+    margin-bottom: 35px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-right: 4px solid var(--first-color);
+    border-left: 4px solid var(--first-color);
+    border-radius: 10px;
+    padding: 2px 15px;
+}
+.small-line{
+    height: 1px !important;
+    width: 75%;
+    text-align: center;
+    /* margin: auto; */
+    background-color: var(--first-color);
+    margin-left: 43px;
+}
+.qualifications-button:hover{
+    color: var(--first-color);
+}
+.qualifications-icon{
+    font-size: 25px !important;
+    color: var(--first-color);
+    margin-right: 10px;
+}
+.qualifications-data{
+    display: grid;
+    grid-template-columns: 4fr max-content 3fr;
+    column-gap: 1.5rem;
+    text-align: center;
+    padding: 0px 190px 0 185px;
+}
+.qualifications-title{
+    font-size: 25px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    
+}
+.qualifications-subtitle{
+    display: inline-block;
+    font-size: 16px;
+    color: var(--first-color);
+    margin: 0px 0px 5px 0px;
+}
+.qualifications-calender{
+    color: rgb(184, 180, 180);
+}
+.qualifications-rounder{
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    background-color: var(--first-color);
+    border-radius: 50%;
+    margin-right: 40px;
+    
+}
+.qualifications-line{
+    display: block;
+    width: 2px;
+    height: 100%;
+    background-color: var(--first-color);
+    transform: translate(6px,-7px);
+    margin-right: 30px;
+    
+}
+.icon-title{
+    font-size: 20px;
+    margin-left: 5px;
+    color: var(--first-color);
+}
+.react-icon{
+    font-size: 27px;
+    margin-left: 5px;
+    color: var(--first-color);
+}
+
+@media screen and (min-width:360px) and (max-width: 390px) {
+    /* .qualifications{
+        height: 105vh !important;
+    } */
+}
+@media screen and (max-width: 390px) {
+    .qualifications-data{
+        display: grid;
+        grid-template-columns: 4fr max-content 3fr;
+        column-gap: 1.5rem;
+        text-align: center;
+        padding: 0px !important;
+    }
+    .qualifications-line{
+        display: block;
+        width: 1px;
+        height: 100%;
+        background-color: var(--first-color);
+        transform: translate(6px,-7px);
+        margin-right: 0px !important;
+        
+    }
+    .qualifications-rounder{
+        display: inline-block;
+        width: 13px;
+        height: 13px;
+        background-color: var(--first-color);
+        border-radius: 50%;
+        margin-right: 0px !important;
+        
+    }
+    .qualifications-title {
+        font-size: 16px;
+        font-weight: bold;
+        color: rgb(255, 255, 255);    .react-icon{
+            /* font-size: 27px; */
+            margin-left: 5px;
+            margin-top: 9px;
+            /* color: var(--first-color); */
+        }
+        .icon-title{
+            margin-top: 9px;
+        }
+        .qualificationsTiltle {
+            text-align: center;
+            color: white;
+            font-size: 50px;
+            font-weight: bold;
+            margin-left: 6px;
+            text-shadow: 2px 5px 8px var(--first-color);
+        }
+        .smalltiltlequalifications {
+            text-align: center;
+            color: var(--first-color);
+            margin-top: -12px;
+            letter-spacing: 1.5px;
+            margin-bottom: 70px;
+            margin-left: 15px;
+        }
+        .qualifications-button {
+            font-size: 20px !important;
+            margin-bottom: 35px;
+            color: white;
+            margin: 0px 15px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .qualifications-icon{
+            font-size: 20px !important;
+        }
+    }
+    
+
+}
+@media screen and (max-width: 767px) {
+    .qualifications{
+        height: 100vh !important;
+    }
+    .qualifications-data{
+        display: grid;
+        grid-template-columns: 4fr max-content 3fr;
+        column-gap: 1.5rem;
+        text-align: center;
+        padding: 0px !important;
+    }
+    .qualifications-line{
+        display: block;
+        width: 1px;
+        height: 100%;
+        background-color: var(--first-color);
+        transform: translate(6px,-7px);
+        margin-right: 0px !important;
+        
+    }
+    .qualifications-rounder{
+        display: inline-block;
+        width: 13px;
+        height: 13px;
+        background-color: var(--first-color);
+        border-radius: 50%;
+        margin-right: 0px !important;
+    }
+    .qualifications-title {
+        font-size: 16px;
+        font-weight: bold;
+        color: rgb(255, 255, 255);
+    }
+    .react-icon{
+        /* font-size: 27px; */
+        margin-left: 5px;
+        margin-top: 9px;
+        /* color: var(--first-color); */
+    }
+    .icon-title{
+        margin-top: 9px;
+    }
+    .qualificationsTiltle {
+        text-align: center;
+        color: white;
+        font-size: 50px;
+        font-weight: bold;
+        margin-left: 6px;
+        text-shadow: 2px 5px 8px var(--first-color);
+    }
+    .smalltiltlequalifications {
+        text-align: center;
+        color: var(--first-color);
+        margin-top: -12px;
+        letter-spacing: 1.5px;
+        margin-bottom: 70px;
+        margin-left: 15px;
+    }
+    .qualifications-button {
+        font-size: 21px;
+        margin-bottom: 35px;
+        color: white;
+        margin: 0px 15px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .qualifications-icon{
+        font-size: 20px !important;
+    }
+}

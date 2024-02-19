@@ -1,0 +1,53 @@
+:root{
+  --hue-color:193;
+  /* --first-color:hsl(193, 60%, 60%); */
+  /* --first-color:hsl(250, 75%, 59%); */
+  --first-color:#746eed;
+  --first-color-second:hsl(var(--hue-color), 60%, 60%);
+  --first-color-alt:hsl(var(--hue-color), 43%, 47%);
+  --first-color-lighter:hsl(var(--hue-color), 78%, 79%);
+  --title-color : hsl(var(--hue-color), 5%, 20%);
+  /* --title-color : hsl(var(--hue-color), 72%, 47%); */
+  --text-color : hsl(var(--hue-color), 40%, 40%);
+  --text-color-light : hsl(var(--hue-color), 50%, 48%);
+  --input-color : hsl(var(--hue-color), 50%, 48%);  
+  --body-color : hsl(var(--hue-color), 81%,6%);
+  --container-color : #FFF;
+} 
+
+html{
+  scroll-behavior: smooth;
+}
+*{
+  margin: 0;
+  background-color: var(--body-color);
+}
+.d-button{
+  /* color: rgb(255, 255, 255); */
+  background-image: linear-gradient(to right,hsl(250, 67%, 64%),#55519c, #415dd9) ; 
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: bold;
+  border: none;
+  transition: all .7s ease !important;
+  background-size: 200%;
+}
+.d-button:hover{
+  background-position: right;
+}
+.specail{
+  color: #746eed;
+}
+
+
+::-webkit-scrollbar{
+  width: 5px;
+  
+}
+::-webkit-scrollbar-track{
+  background-color: var(--body-color);
+}
+::-webkit-scrollbar-thumb{
+  background-color: var(--first-color);
+  border-radius: 25%;
+}

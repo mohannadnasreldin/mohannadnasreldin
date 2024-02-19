@@ -1,0 +1,11 @@
+.cover-animate{
+    width: 600px !important;
+    height: 700px !important;
+}
+
+@media screen and (max-width: 570px) {
+    .cover-animate{
+        width: 300px !important;
+        height: 250px !important;
+    }
+}
