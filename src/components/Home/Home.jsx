@@ -23,8 +23,7 @@ const Home = () => {
                     deleteSpeed={50}
                     delaySpeed={500}
                     /></div>
-                    <p>I have a high level experience in web design and 
-                      development knowledge.
+                    <p>All our dreams can come true, if we have the courage to pursue them.
                     </p>
                     <div className='icons'>
                     <a href="https://www.linkedin.com/in/mohannad-nasreldin-a68956239/"><i class="fa-brands fa-linkedin-in mx-2"></i></a>
