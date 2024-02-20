@@ -1,41 +1,7 @@
-import React, { useState } from 'react';
-import { useRef } from 'react';
-import emailjs from '@emailjs/browser';
+import React from 'react';
 import './Contanctme.css';
 
 const Contactme = () => {
-    const [alertmsg , setAlertmsg]=useState(false);
-    const [name,setName]=useState("");
-    const [email,setEmail]=useState("");
-    const [phone,setPhone]=useState();
-    const [message,setMessage]=useState("");
-    const form = useRef();
-
-  const sendEmail = (e) => {
-    e.preventDefault();
-    
-    emailjs
-      .sendForm('service_jyj79sk', 'template_1wy9jpq', form.current, {
-        publicKey: 'daYCIg_Fj27FURM5e',
-      })
-      .then(
-        () => {
-        },
-        (error) => {
-          setEmail("");
-          setMessage("");
-          setName("");
-          setPhone("");
-          alert("Some Thing Erorr...!, Please Try Again.")
-        },
-        );
-        setEmail("");
-        setMessage("");
-        setName("");
-        setPhone("");
-        setAlertmsg(!alertmsg)
-
-        };
     return (
     <>
     <div className='contact'>

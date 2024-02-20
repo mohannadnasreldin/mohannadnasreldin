@@ -3,14 +3,9 @@ import React from 'react';
 import "../Home/Home.css";
 import profileImg from "../../imgs/profile2.png";
 import HeroBgAnimation from '../HeroBgAnimation/Section';
-import { useTypewriter , Typewriter } from 'react-simple-typewriter';
+import { Typewriter } from 'react-simple-typewriter';
 
 const Home = () => {
-  const { text } = useTypewriter({
-    words: ['Full-stack Developer','Photographer'],
-    loop: {},
-    // typeSpeed:10 // Loop indefinitely
-  });
   return (
     <section className='home'>
         <div className='container '>
