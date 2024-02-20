@@ -23,7 +23,7 @@ const Home = () => {
                     deleteSpeed={50}
                     delaySpeed={500}
                     /></div>
-                    <p>I Have a high level experience in web design and 
+                    <p>I have a high level experience in web design and 
                       development knowledge.
                     </p>
                     <div className='icons'>
