@@ -5,19 +5,10 @@ const Qualifications = () => {
   return (
     <>
         <div className='container qualifications'>
-            <h1 className='qualificationsTiltle'>Qualifications</h1>
+            <h1 className='qualificationsTiltle'>Experience</h1>
             <h5 className='smalltiltlequalifications'>My Personal Journey</h5>
 
             <div className='qualifications-container container'>
-                <div className='qualifications-tabs'>
-
-                    <div className='qualifications-button button--flex'>
-                    <i class="fa-solid fa-school qualifications-icon"></i>
-                    Experience
-                    {/* <div className='small-line'></div> */}
-                    </div>
-                </div>
-
                 <div className='qualifications-sections'>
 
                     <div className='qualifications-content'>
