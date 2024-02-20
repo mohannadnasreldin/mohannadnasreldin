@@ -19,7 +19,7 @@ const Skills = () => {
                             <div className='skills-header' onClick={()=>setOpenlist1(!openlist1)}>
                                 <i class="fa-solid fa-globe fa-2x skills-icon"></i>
                                 <div>
-                                    <h4 className='skills-tiltle'>Frontend</h4>
+                                    <h4 className='skills-tiltle'>FRONTEND</h4>
                                 </div>
                                 {openlist1 &&(<i class="fa-solid fa-angle-down skills-arrow"></i>)}
                                 {!openlist1&&(<i class="fa-solid fa-angle-up skills-arrow"></i>)}
@@ -92,7 +92,7 @@ const Skills = () => {
                             <div className='skills-header' onClick={()=>setOpenlist3(!openlist3)}>
                                 <i class="fa-solid fa-toolbox fa-2x skills-icon"></i>
                                 <div>
-                                    <h4 className='skills-tiltle'>Tools </h4>
+                                    <h4 className='skills-tiltle'>TOOLS</h4>
                                 </div>
                                 {openlist3 &&(<i class="fa-solid fa-angle-down skills-arrow"></i>)}
                                 {!openlist3&&(<i class="fa-solid fa-angle-up skills-arrow"></i>)}
@@ -101,7 +101,7 @@ const Skills = () => {
                                 openlist3&&(<div className='skills-list grid'>
                                 <div className='skills-data'>
                                     <div className='skills-titles my-4'>
-                                        <h4 className='skills-name'>Git & Github</h4>
+                                        <h4 className='skills-name'>GIT & GITHUB</h4>
                                         <span className='skills-number'>90%</span>
                                     </div>
                                     <div className='skills-bar'>
@@ -111,7 +111,7 @@ const Skills = () => {
 
                                 <div className='skills-data'>
                                     <div className='skills-titles my-4'>
-                                        <h4 className='skills-name'>VS code</h4>
+                                        <h4 className='skills-name'>VS CODE</h4>
                                         <span className='skills-number'>90%</span>
                                     </div>
                                     <div className='skills-bar'>
@@ -121,7 +121,7 @@ const Skills = () => {
 
                                 <div className='skills-data'>
                                     <div className='skills-titles my-4'>
-                                        <h4 className='skills-name'>Postman</h4>
+                                        <h4 className='skills-name'>POSTMAN</h4>
                                         <span className='skills-number'>85%</span>
                                     </div>
                                     <div className='skills-bar'>
@@ -148,7 +148,7 @@ const Skills = () => {
                             <div className='skills-header' onClick={()=>setOpenlist2(!openlist2)}>
                                 <i class="fa-solid fa-database fa-2x skills-icon"></i> 
                                 <div>
-                                    <h4 className='skills-tiltle'>Backend</h4>
+                                    <h4 className='skills-tiltle'>BACKEND</h4>
                                 </div>
                                 {openlist2 &&(<i class="fa-solid fa-angle-down skills-arrow"></i>)}
                                 {!openlist2&&(<i class="fa-solid fa-angle-up skills-arrow"></i>)}
