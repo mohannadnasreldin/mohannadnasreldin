@@ -16,7 +16,7 @@ const Qualifications = () => {
                             <div className='qualifications-data'>
                                 <div>
                                     <h4 className='qualifications-title'>Computer Science <i class="fa-solid fa-building-columns icon-title"></i></h4>
-                                    <span className='qualifications-subtitle'>Helwan - University</span>
+                                    <span className='qualifications-subtitle'>Helwan University</span>
                                     <div className='qualifications-calender'>
                                             <i class="fa-solid fa-calendar-days me-2"></i>
                                             Sep 2020 - Jun 2024

@@ -11,22 +11,19 @@ return (
             <div className='container services'>
                 <div className='service'>
                 <i class="fa-solid fa-code icon-service"></i>
-                <h3>Frontend</h3>
-                <h3 className='mb-4'>Development.</h3>
+                <h3>FRONTEND</h3>
                 <a href="#CONTACT">Contact Me <i class="fa-solid fa-arrow-right ms-2"></i></a>
                 </div>
 
                 <div className='service'>
                 <i class="fa-solid fa-server icon-service"></i>
-                <h3>Backend</h3>
-                <h3 className='mb-4' >Development.</h3>
+                <h3>BACKEND</h3>
                 <a href="#CONTACT">Contact Me <i class="fa-solid fa-arrow-right ms-2"></i></a>
                 </div>
 
                 <div className='service'>
                 <i class="fa-brands fa-figma icon-service"></i>
-                <h3>UI/UX</h3>
-                <h3 className='mb-4'>Design.</h3>
+                <h3>UI/UX DESIGN</h3>
                 
                 <a href="#CONTACT">Contact Me <i class="fa-solid fa-arrow-right ms-2"></i></a>
                 </div>
