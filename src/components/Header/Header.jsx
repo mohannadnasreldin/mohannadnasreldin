@@ -17,6 +17,9 @@ const Header = () => {
           <a class="nav-link  NavColor"  href="#ABOUT">About</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link  NavColor" href="#QUALIFICATIONS">Experience</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link  NavColor"  href="#SKILLS">Skills</a>
         </li>
         <li class="nav-item">
