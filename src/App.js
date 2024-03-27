@@ -7,7 +7,7 @@ import Home from './components/Home/Home';
 import Qualifications from './components/Qualifications/Qualifications';
 import Services from './components/Services/Services';
 import Skills from './components/Skills/Skills';
-
+import { SpeedInsights } from "@vercel/speed-insights/react"
 function App() {
   return (
     <div className="App">
