@@ -1,48 +1,38 @@
-<h2 align="left">Hi 👋! My name is Mohannad Nasreldin and I'm a Software Engineer from Cairo, Egypt</h2>
+# Mohannad Nasreldin
 
-###
+## SUMMARY
+Highly motivated and skilled computer science student with a strong foundation in programming languages and a passion for software development. Seeking an internship opportunity to apply my knowledge and further develop my skills in a dynamic and collaborative business environment.
 
-<div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=maurodesouza&hide_title=false&hide_rank=false&show_icons=true&include_all_commits=true&count_private=true&disable_animations=false&theme=dracula&locale=en&hide_border=false" height="150" alt="stats graph"  />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs?username=maurodesouza&locale=en&hide_title=false&layout=compact&card_width=320&langs_count=5&theme=dracula&hide_border=false" height="150" alt="languages graph"  />
-</div>
+## SOFTWARE ENGINEER
+OBJECTIVE
+To obtain a position in a dynamic and innovative company where I can contribute to meaningful projects, enhance my skills in software development, and gain practical experience in a professional setting.
 
-###
+## SKILLS
+- Programming Languages: HTML, CSS, JS, ReactJS, NodeJS, Python, Java, C, C#, PHP, Angular, Django, Matter JS, Typescript
+- Adobe Photoshop: Beginner
 
+## PERSONAL INFO
+- Name: Mohannad Nasreldin
+- Location: Cairo, Egypt
+- Email: mohannadalshrif126@gmail.com
+- GitHub: [github.com/mohannadnasreldin](https://github.com/mohannadnasreldin)
+- Website: [mohannadnasreldin.vercel.app](https://mohannadnasreldin.vercel.app)
 
+## EXPERIENCE
+### FLEXTOCK, INTERNSHIP (JULY 2023 – OCTOBER 2023)
+Completed various projects during Internship, applying programming skills to solve complex problems and gain hands-on experience in software development.
 
-###
+### ILLUSIONARE, FREELANCE (OCTOBER 2023 – MARCH 2024)
+Engaged in independent programming and web development projects, utilizing various technologies to build practical applications and showcase problem-solving abilities.
 
-<div align="left">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="30" alt="javascript logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" height="30" alt="typescript logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height="30" alt="react logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" height="30" alt="html5 logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" height="30" alt="css3 logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="30" alt="python logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" height="30" alt="csharp logo"  />
-</div>
+## EXTRACURRICULAR ACTIVITIES
+- Vice Head of Photography Committee at LINK – FCIH
+- Photographer and Organizer at GDSC MTI
 
-###
-
-<div align="left">
-  <img src="https://img.shields.io/static/v1?message=Youtube&logo=youtube&label=&color=FF0000&logoColor=white&labelColor=&style=for-the-badge" height="35" href="https://www.youtube.com/channel/UCZZb5zJU4TaSAnBtddZQwAg" alt="youtube logo"  />
-  <img src="https://img.shields.io/static/v1?message=Instagram&logo=instagram&label=&color=E4405F&logoColor=white&labelColor=&style=for-the-badge" height="35" href="https://www.instagram.com/anim._.honda/" alt="instagram logo"  />
-  <img src="https://img.shields.io/static/v1?message=Discord&logo=discord&label=&color=7289DA&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="discord logo"  />
-  <img src="https://img.shields.io/static/v1?message=Gmail&logo=gmail&label=&color=D14836&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="gmail logo"  />
-  <img src="https://img.shields.io/static/v1?message=LinkedIn&logo=linkedin&label=&color=0077B5&logoColor=white&labelColor=&style=for-the-badge" href="https://www.linkedin.com/in/mohannad-nasreldin/" height="35" alt="linkedin logo"  />
-</div>
-
-###
-
-<br clear="both">
-
-<img src="https://raw.githubusercontent.com/maurodesouza/maurodesouza/output/snake.svg" alt="Snake animation" />
-
-###
+## EDUCATION
+- **HELWAN UNIVERSITY, Faculty of Computer Science and Artificial Intelligence**
+  - Location: New Gesr El-Suez City, Cairo, Egypt
+  - Major: Information System
+  - Minor: Computer Science
+  - Overall Grade: Good (GPA: 2.43)
+  - Graduation Year: 2024
