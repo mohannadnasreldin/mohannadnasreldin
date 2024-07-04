@@ -1,59 +1,38 @@
-# My React Portfolio
+# Mohannad Nasreldin
 
-A simple and modern portfolio built with React.js and Tailwind CSS.
+## SUMMARY
+Highly motivated and skilled computer science student with a strong foundation in programming languages and a passion for software development. Seeking an internship opportunity to apply my knowledge and further develop my skills in a dynamic and collaborative business environment.
 
-## Description
+## SOFTWARE ENGINEER
+OBJECTIVE
+To obtain a position in a dynamic and innovative company where I can contribute to meaningful projects, enhance my skills in software development, and gain practical experience in a professional setting.
 
-This portfolio showcases my projects and skills in a clean and responsive design.
+## SKILLS
+- Programming Languages: HTML, CSS, JS, ReactJS, NodeJS, Python, Java, C, C#, PHP, Angular, Django, Matter JS, Typescript
+- Adobe Photoshop: Beginner
 
-## Table of Contents
+## PERSONAL INFO
+- Name: Mohannad Nasreldin
+- Location: Cairo, Egypt
+- Email: mohannadalshrif126@gmail.com
+- GitHub: [github.com/mohannadnasreldin](https://github.com/mohannadnasreldin)
+- Website: [mohannadnasreldin.vercel.app](https://mohannadnasreldin.vercel.app)
 
-- [Technologies Used](#technologies-used)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Development](#development)
-- [Credits](#credits)
-- [License](#license)
-- [Contact](#contact)
+## EXPERIENCE
+### FLEXTOCK, INTERNSHIP (JULY 2023 – OCTOBER 2023)
+Completed various projects during Internship, applying programming skills to solve complex problems and gain hands-on experience in software development.
 
-## Technologies Used
+### ILLUSIONARE, FREELANCE (OCTOBER 2023 – MARCH 2024)
+Engaged in independent programming and web development projects, utilizing various technologies to build practical applications and showcase problem-solving abilities.
 
-- React.js
-- Tailwind CSS
+## EXTRACURRICULAR ACTIVITIES
+- Vice Head of Photography Committee at LINK – FCIH
+- Photographer and Organizer at GDSC MTI
 
-## Installation
-
-To run this project locally, follow these steps:
-
-1. Clone the repository: `git clone https://github.com/your-username/my-react-portfolio.git`
-2. Navigate to the project directory: `cd my-react-portfolio`
-3. Install dependencies: `npm install`
-4. Start the development server: `npm start`
-
-## Usage
-
-Once the development server is running, open your browser and go to `http://localhost:3000` to view the portfolio.
-
-## Development
-
-If you'd like to contribute to this project:
-
-- Fork the repository
-- Create a new branch (`git checkout -b feature/your-feature`)
-- Make your changes
-- Commit your changes (`git commit -am 'Add new feature'`)
-- Push to the branch (`git push origin feature/your-feature`)
-- Create a pull request
-
-## Credits
-
-- Project structure inspired by [Create React App](https://create-react-app.dev/)
-- Icons from [FontAwesome](https://fontawesome.com/)
-
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for more details.
-
-## Contact
-
-For questions or feedback, feel free to reach out to me at your.email@example.com or visit my [GitHub profile](https://github.com/your-username).
+## EDUCATION
+- **HELWAN UNIVERSITY, Faculty of Computer Science and Artificial Intelligence**
+  - Location: New Gesr El-Suez City, Cairo, Egypt
+  - Major: Information System
+  - Minor: Computer Science
+  - Overall Grade: Good (GPA: 2.43)
+  - Graduation Year: 2024
