@@ -1,59 +1,48 @@
-# My React Portfolio
+<h2 align="left">Hi 👋! My name is Mohannad Nasreldin and I'm a Software Engineer from Cairo, Egypt</h2>
 
-A simple and modern portfolio built with React.js and Tailwind CSS.
+###
 
-## Description
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=maurodesouza&hide_title=false&hide_rank=false&show_icons=true&include_all_commits=true&count_private=true&disable_animations=false&theme=dracula&locale=en&hide_border=false" height="150" alt="stats graph"  />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs?username=maurodesouza&locale=en&hide_title=false&layout=compact&card_width=320&langs_count=5&theme=dracula&hide_border=false" height="150" alt="languages graph"  />
+</div>
 
-This portfolio showcases my projects and skills in a clean and responsive design.
+###
 
-## Table of Contents
 
-- [Technologies Used](#technologies-used)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Development](#development)
-- [Credits](#credits)
-- [License](#license)
-- [Contact](#contact)
 
-## Technologies Used
+###
 
-- React.js
-- Tailwind CSS
+<div align="left">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="30" alt="javascript logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" height="30" alt="typescript logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height="30" alt="react logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" height="30" alt="html5 logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" height="30" alt="css3 logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="30" alt="python logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" height="30" alt="csharp logo"  />
+</div>
 
-## Installation
+###
 
-To run this project locally, follow these steps:
+<div align="left">
+  <img src="https://img.shields.io/static/v1?message=Youtube&logo=youtube&label=&color=FF0000&logoColor=white&labelColor=&style=for-the-badge" height="35" href="https://www.youtube.com/channel/UCZZb5zJU4TaSAnBtddZQwAg" alt="youtube logo"  />
+  <img src="https://img.shields.io/static/v1?message=Instagram&logo=instagram&label=&color=E4405F&logoColor=white&labelColor=&style=for-the-badge" height="35" href="https://www.instagram.com/anim._.honda/" alt="instagram logo"  />
+  <img src="https://img.shields.io/static/v1?message=Discord&logo=discord&label=&color=7289DA&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="discord logo"  />
+  <img src="https://img.shields.io/static/v1?message=Gmail&logo=gmail&label=&color=D14836&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="gmail logo"  />
+  <img src="https://img.shields.io/static/v1?message=LinkedIn&logo=linkedin&label=&color=0077B5&logoColor=white&labelColor=&style=for-the-badge" href="https://www.linkedin.com/in/mohannad-nasreldin/" height="35" alt="linkedin logo"  />
+</div>
 
-1. Clone the repository: `git clone https://github.com/your-username/my-react-portfolio.git`
-2. Navigate to the project directory: `cd my-react-portfolio`
-3. Install dependencies: `npm install`
-4. Start the development server: `npm start`
+###
 
-## Usage
+<br clear="both">
 
-Once the development server is running, open your browser and go to `http://localhost:3000` to view the portfolio.
+<img src="https://raw.githubusercontent.com/maurodesouza/maurodesouza/output/snake.svg" alt="Snake animation" />
 
-## Development
-
-If you'd like to contribute to this project:
-
-- Fork the repository
-- Create a new branch (`git checkout -b feature/your-feature`)
-- Make your changes
-- Commit your changes (`git commit -am 'Add new feature'`)
-- Push to the branch (`git push origin feature/your-feature`)
-- Create a pull request
-
-## Credits
-
-- Project structure inspired by [Create React App](https://create-react-app.dev/)
-- Icons from [FontAwesome](https://fontawesome.com/)
-
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for more details.
-
-## Contact
-
-For questions or feedback, feel free to reach out to me at your.email@example.com or visit my [GitHub profile](https://github.com/your-username).
+###
