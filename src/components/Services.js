@@ -1,7 +1,7 @@
 import React from "react";
 import {
   FaLaptopCode,
-  FaPaintBrush,
+  FaCamera,
   FaServer,
   FaCodeBranch,
   FaDatabase,
@@ -10,9 +10,9 @@ import { MdWeb, MdIntegrationInstructions } from "react-icons/md";
 
 const services = [
   {
-    title: "Web Design",
-    description: "I build and optimize your online presence.",
-    icon: FaPaintBrush,
+    title: "Photography",
+    description: "I Shoot and Edit your Photos.",
+    icon: FaCamera,
   },
   {
     title: "Web Development",

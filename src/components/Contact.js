@@ -10,7 +10,7 @@ import {
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-20 px-4 bg-gray-900 text-white">
+    <section id="contact" className="py-20 px-4 bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white">
       <div className="container mx-auto text-center">
         <h2 className="text-3xl font-bold mb-8">Contact</h2>
         <p className="mb-8">LET'S WORK TOGETHER</p>
@@ -25,7 +25,7 @@ const Contact = () => {
             href="https://github.com/mohannadnasreldin"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-400 hover:text-white"
+            className="text-gray-400 hover:text-gray-900 dark:hover:text-white"
           >
             <FontAwesomeIcon icon={faGithub} size="2x" />
           </a>
@@ -33,7 +33,7 @@ const Contact = () => {
             href="https://www.facebook.com/mohannad.nasraldin/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-400 hover:text-white"
+            className="text-gray-400 hover:text-blue-700"
           >
             <FontAwesomeIcon icon={faFacebook} size="2x" />
           </a>
@@ -41,7 +41,7 @@ const Contact = () => {
             href="https://www.instagram.com/anim._.honda/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-400 hover:text-white"
+            className="text-gray-400 hover:text-purple-700"
           >
             <FontAwesomeIcon icon={faInstagram} size="2x" />
           </a>
@@ -49,7 +49,7 @@ const Contact = () => {
             href="https://www.linkedin.com/in/mohannad-nasreldin/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-400 hover:text-white"
+            className="text-gray-400 hover:text-blue-500"
           >
             <FontAwesomeIcon icon={faLinkedin} size="2x" />
           </a>
@@ -57,7 +57,7 @@ const Contact = () => {
             href="https://wa.me/201287941698"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-400 hover:text-white"
+            className="text-gray-400 hover:text-green-500"
           >
             <FontAwesomeIcon icon={faWhatsapp} size="2x" />
           </a>
