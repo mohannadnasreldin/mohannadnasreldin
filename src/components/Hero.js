@@ -3,13 +3,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload, faContactCard } from "@fortawesome/free-solid-svg-icons";
 import { Typewriter } from "react-simple-typewriter";
 import cv from "../assets/cv.pdf";
-import profilePic from "../assets/profilepic.png";
+import profilePic from "../assets/profilepic.webp";
 
 const Hero = () => {
   return (
     <section className="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 py-20 md:py-28 fa-font-brands ">
       <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
-        <div className="md:w-2/3 text-center md:text-left mb-6 md:mb-0">
+        <div className="md:w-2/3 text-center md:text-left mb-6 md:mb-0 ios-font">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 ">
             Hello 👋
           </h2>
