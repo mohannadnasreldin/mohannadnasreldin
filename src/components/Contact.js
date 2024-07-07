@@ -10,17 +10,11 @@ import {
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-20 px-4 bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white">
+    <section id="contact" className="py-20 px-4 bg-gray-100 dark:bg-black text-gray-900 dark:text-white">
       <div className="container mx-auto text-center">
         <h2 className="text-3xl font-bold mb-8">Contact</h2>
         <p className="mb-8">LET'S WORK TOGETHER</p>
-        <a
-          href="mailto:mohannadalshrif126@gmail.com"
-          className="inline-block bg-blue-500 text-white px-8 py-4 rounded-lg shadow-lg hover:bg-blue-600"
-        >
-          Schedule a call
-        </a>
-        <div className="mt-8 flex justify-center space-x-6">
+        <div className="mb-8 flex justify-center space-x-6">
           <a
             href="https://github.com/mohannadnasreldin"
             target="_blank"
@@ -62,6 +56,12 @@ const Contact = () => {
             <FontAwesomeIcon icon={faWhatsapp} size="2x" />
           </a>
         </div>
+        <a
+          href="mailto:mohannadnasr.20@gmail.com"
+          className="inline-block bg-purple-500 text-white px-8 py-4 rounded-lg shadow-lg hover:bg-purple-600"
+        >
+          Schedule a call
+        </a>
       </div>
     </section>
   );

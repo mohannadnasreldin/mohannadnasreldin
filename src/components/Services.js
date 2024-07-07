@@ -55,7 +55,7 @@ const services = [
 
 const Services = () => {
   return (
-    <section id="services" className="py-20 px-4 bg-gray-100 dark:bg-gray-900">
+    <section id="services" className="py-20 px-4 bg-gray-100 dark:bg-black">
       <div className="container mx-auto">
         <h2 className="text-3xl font-bold mb-8 text-center text-gray-900 dark:text-gray-100">
           Services
@@ -64,9 +64,9 @@ const Services = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-white dark:bg-gray-800 p-6 shadow-lg rounded-lg text-center"
+              className="bg-white dark:bg-gray-900 p-6 shadow-lg rounded-lg text-center"
             >
-              <service.icon className="text-4xl mb-4 text-blue-500 mx-auto" />
+              <service.icon className="text-4xl mb-4 text-purple-500 mx-auto" />
               <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-gray-100">
                 {service.title}
               </h3>
