@@ -34,5 +34,5 @@ Engaged in independent programming and web development projects, utilizing vario
   - Location: New Gesr El-Suez City, Cairo, Egypt
   - Major: Information System
   - Minor: Computer Science
-  - Overall Grade: Good (GPA: 2.43)
+  - Overall Grade: Good
   - Graduation Year: 2024
