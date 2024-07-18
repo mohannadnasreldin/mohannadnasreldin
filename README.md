@@ -31,7 +31,7 @@ Engaged in independent programming and web development projects, utilizing vario
 
 ## EDUCATION
 - **HELWAN UNIVERSITY, Faculty of Computer Science and Artificial Intelligence**
-  - Location: New Gesr El-Suez City, Cairo, Egypt
+  - Location: Helwan, Cairo, Egypt
   - Major: Information System
   - Minor: Computer Science
   - Overall Grade: Good
