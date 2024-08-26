@@ -99,8 +99,9 @@ const Header = () => {
             </div>
           </div>
 
-          <ul className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6  md:mt-0 bg-white dark:bg-black text-gray-900 dark:text-gray-100">
-            <li>
+          <ul
+  className={`flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6 md:mt-0 ${isOpen ? 'bg-white dark:bg-black' : ''} text-gray-900 dark:text-gray-100`}
+>            <li>
               <a
                 href="#services"
                 onClick={(e) => handleScrollToSection(e, "services")}
@@ -116,6 +117,15 @@ const Header = () => {
                 className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:text-purple-500 border-b-2 border-transparent hover:border-purple-500 transition-colors duration-300"
               >
                 Experience
+              </a>
+            </li>
+            <li>
+              <a
+                href="#projects"
+                onClick={(e) => handleScrollToSection(e, "projects")}
+                className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:text-purple-500 border-b-2 border-transparent hover:border-purple-500 transition-colors duration-300"
+              >
+                Projects
               </a>
             </li>
             <li>
