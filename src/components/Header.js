@@ -60,14 +60,15 @@ const Header = () => {
     >
       <div className="container mx-auto px-4 flex items-center justify-between relative py-4 ">
         {/* Logo outside sidenav (for large screens) */}
-        <div className="flex items-center">
-          <img
-            src={logo}
-            alt="Logo"
-            className="h-8 w-auto dark:invert hover:cursor-pointer"
-            onClick={(e) => handleScrollToSection(e, "home")}
-          />
-        </div>
+        <div className={`flex items-center ${isOpen ? 'hidden' : ''}`}>
+  <img
+    src={logo}
+    alt="Logo"
+    className="h-8 w-auto dark:invert hover:cursor-pointer"
+    onClick={(e) => handleScrollToSection(e, "home")}
+  />
+</div>
+
 
         {/* Menu button for mobile */}
         <div
@@ -98,7 +99,7 @@ const Header = () => {
             </div>
           </div>
 
-          <ul className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6  md:mt-0">
+          <ul className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6  md:mt-0 bg-white dark:bg-black text-gray-900 dark:text-gray-100">
             <li>
               <a
                 href="#services"
