@@ -34,7 +34,7 @@ const Hero = () => {
         </div>
         <div className="md:w-2/3 text-center md:text-left mb-6 md:mb-0 ios-font md:justify-end">
           <div className="text-3xl md:text-4xl font-bold mb-4">
-            Hi, It's {" "}
+            Hi, I'm {" "}
             <span className="typewriter-text">
               <Typewriter
                 words={["Mohannad"]}
@@ -45,10 +45,10 @@ const Hero = () => {
             </span>
           </div>
           <div className="text-2xl md:text-3xl font-bold mb-4">
-            I'm a {" "}
+            a {" "}
             <span className="typewriter-text">
               <Typewriter
-                words={["Fullstack Developer", "Photographer"]}
+                words={["Software Engineer", "Photographer"]}
                 loop={true}
                 cursor
                 cursorStyle="|"

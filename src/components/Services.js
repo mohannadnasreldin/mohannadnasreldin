@@ -9,15 +9,11 @@ import {
 import { MdWeb, MdIntegrationInstructions } from "react-icons/md";
 
 const services = [
+  
   {
-    title: "Photography",
-    description: "I Shoot and Edit your Photos.",
-    icon: FaCamera,
-  },
-  {
-    title: "Web Development",
-    description: "I develop robust and scalable web applications.",
-    icon: MdWeb,
+    title: "Software Engineering",
+    description: "I develop robust and scalable Software applications.",
+    icon: FaLaptopCode,
   },
   {
     title: "Full Stack Engineer",
@@ -33,7 +29,7 @@ const services = [
   {
     title: "Frontend Development",
     description: "Developing interactive and responsive user interfaces.",
-    icon: FaLaptopCode,
+    icon: MdWeb,
   },
   {
     title: "API Integration",
@@ -50,6 +46,11 @@ const services = [
     description:
       "Utilizing version control systems like Git for efficient collaboration.",
     icon: FaCodeBranch,
+  },
+  {
+    title: "Photography",
+    description: "I Shoot and Edit your Photos.",
+    icon: FaCamera,
   },
 ];
 

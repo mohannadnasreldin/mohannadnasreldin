@@ -37,7 +37,7 @@ const Experience = () => {
               <div className={`flex items-center justify-center w-10 h-10 mb-4 rounded-full bg-purple-600 z-10`}>
                 {exp.type === 'education' ? <FaGraduationCap className="text-white" /> : <FaBriefcase className="text-white" />}
               </div>
-              <div className={`relative bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-xs md:${index % 2 === 0 ? 'ml-auto sm:ml-0 sm:mr-auto' : 'mr-auto sm:mr-0 sm:ml-auto'}`}>
+              <div className={`relative bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg max-w-xs md:${index % 2 === 0 ? 'ml-auto sm:ml-0 sm:mr-auto' : 'mr-auto sm:mr-0 sm:ml-auto'}`}>
                 <h3 className="text-2xl font-semibold sm:text-xl">{exp.role}</h3>
                 <p className="text-purple-400 sm:text-base">{exp.organization}</p>
                 <p className="text-gray-400 flex justify-center items-center sm:text-sm"><FaCalendar className='text-purple-500 mr-2' />{exp.duration}</p>
