@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload, faContactCard } from "@fortawesome/free-solid-svg-icons";
 import { Typewriter } from "react-simple-typewriter";
-import cv from "../assets/cv.pdf";
+import cv from "../assets/CV.pdf";
 import profilePic from "../assets/profilepic.webp";
 import {
   faGithub,
