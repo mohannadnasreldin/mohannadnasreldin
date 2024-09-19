@@ -11,6 +11,13 @@ import {
   faLinkedin,
   faWhatsapp,
 } from "@fortawesome/free-brands-svg-icons";
+
+const handleScrollToSection = (event, sectionId) => {
+  event.preventDefault();
+  document.getElementById(sectionId).scrollIntoView({
+    behavior: "smooth",
+  });
+};
 const Hero = () => {
   const [isDownloading, setIsDownloading] = useState(false);
 
@@ -116,8 +123,8 @@ const Hero = () => {
             <span>{isDownloading ? "Downloading..." : "Download CV"}</span>
           </a>
         </button>
-        <button className="d-button hover:text-purple-500 ">
-          <a href="#contact" className="flex items-center space-x-2">
+        <button onClick={(e) => handleScrollToSection(e, "contact")} className="d-button hover:text-purple-500 ">
+          <a href="" className="flex items-center space-x-2">
             <FontAwesomeIcon icon={faContactCard} />
             <span>Contact</span>
           </a>
