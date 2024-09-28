@@ -124,7 +124,7 @@ const Hero = () => {
           </a>
         </button>
         <button onClick={(e) => handleScrollToSection(e, "contact")} className="d-button hover:text-purple-500 ">
-          <a href="" className="flex items-center space-x-2">
+          <a href="#" className="flex items-center space-x-2">
             <FontAwesomeIcon icon={faContactCard} />
             <span>Contact</span>
           </a>

@@ -16,6 +16,9 @@
 .header-font {
   font-family: "Lobster Two", sans-serif;
 }
+body{
+  background-color: black;
+}
 .dark-mode {
   background-color: #1a202c;
   color: #ffffff;
@@ -84,4 +87,30 @@ section {
 }
 .typewriter-text {
   color: #a855f7; /* purple-500 equivalent in Tailwind */
+}
+/* Add this to your main CSS file or the component CSS file */
+
+html, body {
+  scroll-behavior: smooth; /* Enable smooth scrolling */
+  overflow: auto;
+}
+
+.main-container {
+  scroll-snap-type: y mandatory; /* Enable vertical snapping */
+  height: 100vh; /* Full height of the viewport */
+}
+
+
+
+
+.section {
+  scroll-snap-align: start; /* Align the start of each section */
+  height: 100vh; /* Make each section full height */
+  opacity: 0; /* Start hidden */
+  transition: opacity 0.7s ease; /* Transition for fade effect */
+}
+
+/* Fade-in class for visible sections */
+.section.visible {
+  opacity: 1; /* Fully visible */
 }
