@@ -25,6 +25,55 @@ const projects = [
     demoLink: "https://to-do-list-eight-mauve.vercel.app/",
     githubLink: "https://github.com/mohannadnasreldin/to-do-list",
   },
+  {
+    title: "E-Commerce UI",
+    category: "Frontend Development",
+    imageUrl: null,
+    demoLink: null,
+    githubLink: "https://github.com/mohannadnasreldin/E-Commerce-UI",
+  },
+  {
+    title: "E-Commerce Core",
+    category: "Backend Development",
+    imageUrl: null,
+    demoLink: null,
+    githubLink: "https://github.com/mohannadnasreldin/E-Commerce-Core",
+  },
+  {
+    title: "Ecommerce Sentiment Analysis",
+    category: "Backend Development",
+    imageUrl: null,
+    demoLink: null,
+    githubLink: "https://github.com/mohannadnasreldin/E-commerce_Sentiment_Analysis",
+  },
+  {
+    title: "Dining Philosopher Solution",
+    category: "Backend Development",
+    imageUrl: null,
+    demoLink: null,
+    githubLink: "https://github.com/mohannadnasreldin/DiningPhilisopher_Solution",
+  },
+  {
+    title: "OCR",
+    category: "Machine Learning",
+    imageUrl: null,
+    demoLink: null,
+    githubLink: "https://github.com/mohannadnasreldin/OCR",
+  },
+  {
+    title: "Information Retrieval",
+    category: "Machine Learning",
+    imageUrl: null,
+    demoLink: null,
+    githubLink: "https://github.com/mohannadnasreldin/Information_Retrieval",
+  },
+  {
+    title: "Graphics Package",
+    category: "Backend Development",
+    imageUrl: null,
+    demoLink: null,
+    githubLink: "https://github.com/mohannadnasreldin/Graphics_Package",
+  },
 ];
 
 const Projects = () => {
@@ -47,7 +96,7 @@ const Projects = () => {
             start: "top 80%",
             end: "top 30%",
             scrub: true,
-            // once: true,
+            once: true,
           },
         }
       );
@@ -70,25 +119,29 @@ const Projects = () => {
               key={index}
               className="project-card bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105"
             >
-              <img
-                src={project.imageUrl}
-                alt={project.title}
-                className="w-full h-56 object-cover"
-              />
+              {project.imageUrl && (
+                <img
+                  src={project.imageUrl}
+                  alt={project.title}
+                  className="w-full h-56 object-cover"
+                />
+              )}
               <div className="p-6">
                 <h3 className="text-2xl font-semibold mb-3">{project.title}</h3>
                 <p className="text-gray-600 dark:text-gray-400 mb-5">
                   {project.category}
                 </p>
                 <div className="flex justify-between items-center">
-                  <a
-                    href={project.demoLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block bg-purple-500 text-white px-5 py-2 rounded shadow hover:bg-purple-600"
-                  >
-                    Live Demo
-                  </a>
+                  {project.demoLink && (
+                    <a
+                      href={project.demoLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block bg-purple-500 text-white px-5 py-2 rounded shadow hover:bg-purple-600"
+                    >
+                      Live Demo
+                    </a>
+                  )}
                   <a
                     href={project.githubLink}
                     target="_blank"
