@@ -1,25 +1,23 @@
 
 ---
 
-# 💫 About Me:
-👨‍💻 **Currently working on**:  
-Frontend development projects, deepening my knowledge in DOM manipulation, and improving my debugging skills.
+💫 About Me:
+👨‍💻 Currently working on:
+Frontend development projects, improving my debugging skills.
 
-🤝 **Looking to collaborate on**:  
-Frontend development projects, code reviews, and any web development-related tasks. I'm always open to new challenges and collaborations that push my skills further.
+🤝 Looking to collaborate on:
+Frontend projects, code reviews, and web development tasks.
 
-🌱 **Currently learning**:  
-Advanced concepts in cybersecurity and exploring cutting-edge frontend techniques. Improving my understanding of complex web architectures.
+🌱 Currently learning:
+Advanced cybersecurity concepts and cutting-edge frontend techniques.
 
-💬 **Ask me about**:  
-- Frontend development (HTML, CSS, JavaScript, React, TypeScript)
-- Debugging and problem-solving in code
-- Best practices in code reviews
-- Programming tips and advice for optimizing code
+💬 Ask me about:
 
-⚡ **Fun Fact**:  
-I'm a former Software Engineer intern who is passionate about leveling up my frontend skills and learning about cybersecurity.
-
+Frontend development (HTML, CSS, JavaScript, React, TypeScript)
+Debugging and code reviews
+Optimizing web performance
+⚡ Fun Fact:
+Former Software Engineer intern, passionate about leveling up frontend skills and exploring cybersecurity.
 ---
 
 ## 🌐 Socials:
@@ -57,7 +55,7 @@ I'm a former Software Engineer intern who is passionate about leveling up my fro
 ---
 
 ### ✍️ Random Dev Quote:
-![](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=tokyonight)
+> "Code is like humor. When you have to explain it, it’s bad." – Cory House
 
 ---
 
