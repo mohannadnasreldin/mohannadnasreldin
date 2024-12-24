@@ -67,13 +67,6 @@ const projects = [
     demoLink: null,
     githubLink: "https://github.com/mohannadnasreldin/Information_Retrieval",
   },
-  {
-    title: "Graphics Package",
-    category: "Backend Development",
-    imageUrl: null,
-    demoLink: null,
-    githubLink: "https://github.com/mohannadnasreldin/Graphics_Package",
-  },
 ];
 
 const Projects = () => {
