@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import {
   SiHtml5,
   SiCss3,
@@ -16,6 +16,7 @@ import {
 } from "react-icons/si";
 import { VscVscode } from "react-icons/vsc";
 import { TbBrandCSharp } from "react-icons/tb";
+
 const skillsData = [
   { name: "HTML", icon: <SiHtml5 /> },
   { name: "CSS", icon: <SiCss3 /> },
@@ -35,17 +36,6 @@ const skillsData = [
 ];
 
 const Skills = () => {
-  const skillContainerRef = useRef(null);
-
-  useEffect(() => {
-    const skillContainer = skillContainerRef.current;
-    const skillWidth = skillContainer.scrollWidth / 2;
-
-    // Adjust the animation duration based on the total width
-    skillContainer.style.animationDuration = `${skillWidth / 150}s`; // Adjust 20 for speed
-
-  }, []);
-
   return (
     <section id="skills" className="py-20 px-4 bg-gray-100 dark:bg-black">
       <div className="container mx-auto">
@@ -55,11 +45,9 @@ const Skills = () => {
 
         <div className="relative w-full overflow-hidden">
           <div
-            className="skill-container flex justify-start items-center space-x-8"
-            ref={skillContainerRef}
+            className="skill-container flex justify-start items-center space-x-8 animate-scroll"
             style={{
               display: "flex",
-              animation: "scrolling infinite linear", // Infinite scrolling animation
               whiteSpace: "nowrap", // Ensure content stays on one line
             }}
           >
@@ -89,8 +77,12 @@ const styles = `
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-100%);
   }
+}
+
+.animate-scroll {
+  animation: scrolling 30s linear infinite; /* Adjust 30s for scroll speed */
 }
 `;
 
