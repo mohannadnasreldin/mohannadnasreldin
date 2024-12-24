@@ -9,14 +9,14 @@ import {
   SiNodedotjs,
   SiPython,
   SiC,
-  SiCsharp,
   SiPhp,
   SiDjango,
   SiMattermost,
   SiGithub,
   SiVisualstudiocode,
 } from "react-icons/si";
-
+import { VscVscode } from "react-icons/vsc";
+import { TbBrandCSharp } from "react-icons/tb";
 const skillsData = [
   { name: "HTML", icon: <SiHtml5 /> },
   { name: "CSS", icon: <SiCss3 /> },
@@ -27,12 +27,12 @@ const skillsData = [
   { name: "NodeJS", icon: <SiNodedotjs /> },
   { name: "Python", icon: <SiPython /> },
   { name: "C", icon: <SiC /> },
-  { name: "C#", icon: <SiCsharp /> },
+  { name: "C#", icon: <TbBrandCSharp /> },
   { name: "PHP", icon: <SiPhp /> },
   { name: "Django", icon: <SiDjango /> },
   { name: "Matter JS", icon: <SiMattermost /> },
   { name: "GitHub", icon: <SiGithub /> },
-  { name: "VS Code", icon: <SiVisualstudiocode /> },
+  { name: "VS Code", icon: <VscVscode /> },
 ];
 
 const Skills = () => {

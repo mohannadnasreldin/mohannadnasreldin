@@ -1,0 +1,24 @@
+{
+    "short_name": "Mohannad Portfolio",
+    "name": "Mohannad Nasreldin Portfolio",
+    "description": "Mohannad Nasreldin's portfolio - Software Engineer specializing in Full-Stack Development, Backend Development, and API Integration.",
+    "icons": [
+        {
+            "src": "Letter M.webp",
+            "sizes": "192x192",
+            "type": "image/webp"
+        },
+        {
+            "src": "Letter M.webp",
+            "sizes": "512x512",
+            "type": "image/webp"
+        }
+    ],
+    "start_url": ".",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "theme_color": "#000000",
+    "orientation": "portrait",
+    "scope": "/",
+    "lang": "en"
+}
