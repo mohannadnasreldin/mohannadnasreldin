@@ -13,7 +13,6 @@ import {
   SiDjango,
   SiMattermost,
   SiGithub,
-  SiVisualstudiocode,
 } from "react-icons/si";
 import { VscVscode } from "react-icons/vsc";
 import { TbBrandCSharp } from "react-icons/tb";
