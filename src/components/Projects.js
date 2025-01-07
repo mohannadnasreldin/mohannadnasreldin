@@ -3,6 +3,8 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import bmi from "../assets/BMI-Calculator-App.png";
 import TDL from "../assets/To-Do-List.png";
+import ecommerce from "../assets/E-commerce.png";
+import city from "../assets/City Organization.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
@@ -11,6 +13,13 @@ gsap.registerPlugin(ScrollTrigger);
 
 // Updated projects array with demo and GitHub links
 const projects = [
+  {
+    title: "City Organization",
+    category: "Frontend Development",
+    imageUrl: city,
+    demoLink: "https://city-development-association.vercel.app/",
+    githubLink: "https://github.com/mohannadnasreldin/city-organization"
+  },
   {
     title: "BMI Calculator",
     category: "Frontend Development",
@@ -28,7 +37,7 @@ const projects = [
   {
     title: "E-Commerce UI",
     category: "Frontend Development",
-    imageUrl: null,
+    imageUrl: ecommerce,
     demoLink: null,
     githubLink: "https://github.com/mohannadnasreldin/E-Commerce-UI",
   },
@@ -66,6 +75,12 @@ const projects = [
     imageUrl: null,
     demoLink: null,
     githubLink: "https://github.com/mohannadnasreldin/Information_Retrieval",
+  },  {
+    title: "Graphics Package",
+    category: "Backend Development",
+    imageUrl: null,
+    demoLink: null,
+    githubLink: "https://github.com/mohannadnasreldin/Graphics_Package",
   },
 ];
 
