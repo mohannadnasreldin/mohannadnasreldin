@@ -25,6 +25,18 @@ const experiences = [
     duration: '2024',
     type: 'work'
   },
+  {
+    role: 'Software Engineer',
+    organization: 'Part-Time @ Aydn Labs',
+    duration: '2025',
+    type: 'work'
+  },
+{
+    role: 'Software Engineer',
+    organization: 'Internship @ IFIN Services',
+    duration: '2025',
+    type: 'work'
+}
 ];
 
 const Experience = () => {
