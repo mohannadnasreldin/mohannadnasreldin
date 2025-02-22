@@ -1,5 +1,3 @@
----
-
 🌟 **About Me:**
 
 👨‍💻 **Currently working on**:  
@@ -20,7 +18,6 @@ Advanced cybersecurity concepts, AI and machine learning fundamentals, and moder
 ⚡ **Fun Fact**:  
 Former Software Engineer intern with a passion for continuous learning and applying new skills to real-world problems, especially in AI, security, and web development.
 
----
 
 ## 🌐 **Socials**:  
 [![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?logo=Facebook&logoColor=white)](https://www.facebook.com/mohannad.nasraldin) [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/aka._.honda) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mohannad-nasreldin/)
