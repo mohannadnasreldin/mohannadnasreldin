@@ -1,25 +1,24 @@
-
 ---
 
 💫 **About Me:**
 
 👨‍💻 **Currently working on**:  
-Frontend development projects, improving my debugging skills, and optimizing web performance.
+Full-stack development projects, improving my debugging skills, optimizing web performance, and exploring AI applications.
 
 🤝 **Seeking collaboration on**:  
-Frontend development roles, code reviews, web development projects, and opportunities to contribute to innovative teams.
+Full-stack development roles, AI-enhanced web applications, cybersecurity projects, code reviews, and innovative software solutions.
 
 🌱 **Currently learning**:  
-Advanced cybersecurity concepts and cutting-edge frontend techniques to stay ahead in the ever-evolving tech landscape.
+Advanced cybersecurity concepts, AI and machine learning fundamentals, and modern web technologies to stay ahead in the ever-evolving tech landscape.
 
 💬 **Ask me about**:  
-- Frontend development (HTML, CSS, JavaScript, React, TypeScript)
+- Full-stack development (React, Angular, TypeScript, Node.js, PHP Laravel, Django)
 - Optimizing web performance and ensuring cross-browser compatibility
-- Debugging and code reviews to ensure quality code
-- Best practices in frontend development and efficient workflows
+- Debugging, code reviews, and best development practices
+- AI-driven solutions in web development and cybersecurity fundamentals
 
 ⚡ **Fun Fact**:  
-Former Software Engineer intern with a passion for continuous learning and an eagerness to apply new skills to real-world problems, especially in frontend and cybersecurity.
+Former Software Engineer intern with a passion for continuous learning and applying new skills to real-world problems, especially in AI, security, and web development.
 
 ---
 
@@ -29,18 +28,20 @@ Former Software Engineer intern with a passion for continuous learning and an ea
 ---
 
 # 💻 **Tech Stack**:
+
 **Languages**:  
-![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white) ![PHP](https://img.shields.io/badge/PHP-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white) ![Python](https://img.shields.io/badge/python-%233776AB.svg?style=for-the-badge&logo=python&logoColor=white)
 
 **Frameworks & Libraries**:  
-![Angular](https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white) ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB) ![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white) ![Django](https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![Angular](https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white) ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB) ![Django](https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white) ![Laravel](https://img.shields.io/badge/laravel-%23FF2D20.svg?style=for-the-badge&logo=laravel&logoColor=white)
 
 **Databases & Tools**:  
-![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white) ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white) ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) ![Jira](https://img.shields.io/badge/jira-%230A0FFF.svg?style=for-the-badge&logo=jira&logoColor=white)
+![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white) ![PostgreSQL](https://img.shields.io/badge/postgresql-316192.svg?style=for-the-badge&logo=postgresql&logoColor=white) ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white) ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) ![Jira](https://img.shields.io/badge/jira-%230A0FFF.svg?style=for-the-badge&logo=jira&logoColor=white)
 
 ---
 
 # 📊 **GitHub Stats**:
+
 **Profile Stats**:  
 ![](https://github-readme-stats.vercel.app/api?username=mohannadnasreldin&theme=codeSTACKr&hide_border=true&include_all_commits=true&count_private=true)
 
@@ -70,3 +71,4 @@ Former Software Engineer intern with a passion for continuous learning and an ea
 [![](https://visitcount.itsvg.in/api?id=mohannadnasreldin&icon=0&color=6)](https://visitcount.itsvg.in)
 
 ---
+
