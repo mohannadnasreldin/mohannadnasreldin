@@ -1,23 +1,26 @@
-🌟 **About Me:**
+---
+
+💫 **About Me:**
 
 👨‍💻 **Currently working on**:  
-Full-stack development projects, improving my debugging skills, optimizing web performance, and exploring AI applications.
+Frontend development projects, improving my debugging skills, and optimizing web performance.
 
 🤝 **Seeking collaboration on**:  
-Full-stack development roles, AI-enhanced web applications, cybersecurity projects, code reviews, and innovative software solutions.
+Frontend development roles, code reviews, web development projects, and opportunities to contribute to innovative teams.
 
 🌱 **Currently learning**:  
-Advanced cybersecurity concepts, AI and machine learning fundamentals, and modern web technologies.
+Advanced cybersecurity concepts and cutting-edge frontend techniques to stay ahead in the ever-evolving tech landscape.
 
 💬 **Ask me about**:  
-- Full-stack development (React, Angular, TypeScript, Node.js, PHP Laravel, Django)  
-- Optimizing web performance and ensuring cross-browser compatibility  
-- Debugging, code reviews, and best development practices  
-- AI-driven solutions in web development and cybersecurity fundamentals  
+- Frontend development (HTML, CSS, JavaScript, React, TypeScript)
+- Optimizing web performance and ensuring cross-browser compatibility
+- Debugging and code reviews to ensure quality code
+- Best practices in frontend development and efficient workflows
 
 ⚡ **Fun Fact**:  
-Former Software Engineer intern with a passion for continuous learning and applying new skills to real-world problems, especially in AI, security, and web development.
+Former Software Engineer intern with a passion for continuous learning and an eagerness to apply new skills to real-world problems, especially in frontend and cybersecurity.
 
+---
 
 ## 🌐 **Socials**:  
 [![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?logo=Facebook&logoColor=white)](https://www.facebook.com/mohannad.nasraldin) [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/aka._.honda) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mohannad-nasreldin/)
