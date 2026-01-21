@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faGithub,
@@ -12,7 +13,11 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Contact = () => {
+/**
+ * Contact section
+ * @param {{ id?: string }} props
+ */
+const Contact = ({ id = "contact" }) => {
   const sectionRef = useRef(null);
   const headingRef = useRef(null);
   const paragraphRef = useRef(null);
@@ -99,7 +104,7 @@ const Contact = () => {
   return (
     <section
       ref={sectionRef}
-      id="contact"
+      id={id}
       className="py-20 px-4 bg-gray-100 dark:bg-black text-gray-900 dark:text-white"
     >
       <div className="container mx-auto text-center">
@@ -169,3 +174,6 @@ const Contact = () => {
 };
 
 export default Contact;
+Contact.propTypes = {
+  id: PropTypes.string,
+};

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faGithub,
@@ -8,12 +9,16 @@ import {
   faWhatsapp,
 } from "@fortawesome/free-brands-svg-icons";
 
-const Footer = () => {
+/**
+ * Footer component
+ * @param {{ year?: number }} props
+ */
+const Footer = ({ year = new Date().getFullYear() }) => {
   return (
     <footer className="bg-gray-200 dark:bg-black text-gray-800 dark:text-white py-4">
       <div className="container mx-auto text-center">
         <p>
-          &copy; {new Date().getFullYear()} Mohannad Nasreldin. All rights
+          &copy; {year} Mohannad Nasreldin. All rights
           reserved.
         </p>
         <div className="mt-5 flex justify-center space-x-12">
@@ -67,3 +72,6 @@ const Footer = () => {
 };
 
 export default Footer;
+Footer.propTypes = {
+  year: PropTypes.number,
+};

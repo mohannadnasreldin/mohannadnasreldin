@@ -1,10 +1,15 @@
 import React, { useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const About = () => {
+/**
+ * About section
+ * @param {{ id?: string }} props
+ */
+const About = ({ id = 'about' }) => {
   const sectionRef = useRef(null);
   const linesRef = useRef(null);
 
@@ -41,7 +46,7 @@ const About = () => {
   return (
     <section
       ref={sectionRef}
-      id="about"
+      id={id}
       className="py-20 px-4 bg-gray-100 dark:bg-black"
     >
       <div className="container mx-auto max-w-3xl">
@@ -64,3 +69,6 @@ const About = () => {
 };
 
 export default About;
+About.propTypes = {
+  id: PropTypes.string,
+};

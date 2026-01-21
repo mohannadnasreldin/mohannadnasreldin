@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
@@ -56,7 +57,11 @@ const services = [
   },
 ];
 
-const Services = () => {
+/**
+ * Services section
+ * @param {{ id?: string }} props
+ */
+const Services = ({ id = 'services' }) => {
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -84,7 +89,7 @@ const Services = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} id="services" className="py-20 px-4 bg-gray-100 dark:bg-black">
+    <section ref={sectionRef} id={id} className="py-20 px-4 bg-gray-100 dark:bg-black">
       <div className="container mx-auto">
         <h2 className="text-3xl font-bold mb-8 text-center text-gray-900 dark:text-gray-100">
           Services
@@ -108,6 +113,10 @@ const Services = () => {
       </div>
     </section>
   );
+};
+
+Services.propTypes = {
+  id: PropTypes.string,
 };
 
 export default Services;

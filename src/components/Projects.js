@@ -1,4 +1,5 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import PropTypes from "prop-types";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import bmi from "../assets/BMI-Calculator-App.png";
@@ -84,10 +85,18 @@ const projects = [
   },
 ];
 
-const Projects = () => {
+/**
+ * Projects section
+ * @param {{ id?: string }} props
+ */
+const Projects = ({ id = "projects" }) => {
   const sectionRef = useRef(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
+    setIsLoading(false);
+    setError(null);
     const elements = sectionRef.current.querySelectorAll('.project-card');
 
     elements.forEach((element, index) => {
@@ -114,25 +123,40 @@ const Projects = () => {
   return (
     <section
       ref={sectionRef}
-      id="projects"
+      id={id}
       className="py-20 px-4 bg-gray-100 dark:bg-black"
     >
       <div className="container mx-auto">
         <h2 className="text-3xl font-bold mb-8 text-center text-gray-900 dark:text-gray-100">
           Projects
         </h2>
+        {error && (
+          <div role="alert" className="mx-auto mb-6 max-w-md rounded bg-red-100 text-red-800 px-4 py-3">
+            Failed to load projects.
+          </div>
+        )}
+        {isLoading && (
+          <div className="flex justify-center items-center my-8">
+            <div className="loader" aria-label="Loading projects"></div>
+          </div>
+        )}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {projects.map((project, index) => (
             <div
               key={index}
               className="project-card bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105"
             >
-              {project.imageUrl && (
+              {project.imageUrl ? (
                 <img
                   src={project.imageUrl}
                   alt={project.title}
                   className="w-full h-56 object-cover"
+                  loading="lazy"
                 />
+              ) : (
+                <div className="w-full h-56 bg-gray-200 dark:bg-gray-800 flex items-center justify-center text-gray-500 dark:text-gray-400 text-lg font-semibold">
+                  No Image Available
+                </div>
               )}
               <div className="p-6">
                 <h3 className="text-2xl font-semibold mb-3">{project.title}</h3>
@@ -169,3 +193,6 @@ const Projects = () => {
 };
 
 export default Projects;
+Projects.propTypes = {
+  id: PropTypes.string,
+};

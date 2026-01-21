@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {
   SiHtml5,
   SiCss3,
@@ -35,9 +36,13 @@ const skillsData = [
   { name: "VS Code", icon: <VscVscode /> },
 ];
 
-const Skills = () => {
+/**
+ * Skills section
+ * @param {{ id?: string }} props
+ */
+const Skills = ({ id = "skills" }) => {
   return (
-    <section id="skills" className="py-20 px-4 bg-gray-100 dark:bg-black">
+    <section id={id} className="py-20 px-4 bg-gray-100 dark:bg-black">
       <div className="container mx-auto">
         <h2 className="text-3xl font-bold mb-8 text-gray-900 dark:text-gray-100 text-center">
           Skills
@@ -51,7 +56,6 @@ const Skills = () => {
               whiteSpace: "nowrap", // Ensure content stays on one line
             }}
           >
-            {/* Duplicate skillsData for continuous scrolling */}
             {skillsData.concat(skillsData).map((skill, index) => (
               <div
                 key={index}
@@ -69,21 +73,6 @@ const Skills = () => {
 };
 
 export default Skills;
-
-// Add this CSS to your styles (e.g., in a CSS file or within a <style> tag):
-const styles = `
-@keyframes scrolling {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-.animate-scroll {
-  animation: scrolling 30s linear infinite; /* Adjust 30s for scroll speed */
-}
-`;
-
-document.head.insertAdjacentHTML("beforeend", `<style>${styles}</style>`);
+Skills.propTypes = {
+  id: PropTypes.string,
+};

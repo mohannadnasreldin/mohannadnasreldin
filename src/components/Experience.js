@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { FaGraduationCap, FaBriefcase, FaCalendar } from 'react-icons/fa';
@@ -36,10 +37,26 @@ const experiences = [
     organization: 'Internship @ IFIN Services',
     duration: '2025',
     type: 'work'
+},
+{
+    role: 'Software Engineer',
+    organization: 'Full-Time @ IFIN Services',
+    duration: '2025',
+    type: 'work'
+},
+{
+    role: 'System Specialist',
+    organization: 'Full-Time @ Egypt Air',
+    duration: '2025',
+    type: 'work'
 }
 ];
 
-const Experience = () => {
+/**
+ * Experience section
+ * @param {{ id?: string }} props
+ */
+const Experience = ({ id = 'experience' }) => {
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -68,7 +85,7 @@ const Experience = () => {
   return (
     <section
       ref={sectionRef}
-      id="experience"
+      id={id}
       className="py-20 px-4 bg-gray-100 dark:bg-black text-gray-900 dark:text-gray-100"
     >
       <div className="flex flex-col text-center items-center justify-center min-h-screen px-4">
@@ -109,6 +126,10 @@ const Experience = () => {
       </div>
     </section>
   );
+};
+
+Experience.propTypes = {
+  id: PropTypes.string,
 };
 
 export default Experience;

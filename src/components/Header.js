@@ -1,8 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
+import PropTypes from "prop-types";
 import { Menu, X } from "feather-icons-react";
 import logo from "../assets/Letter M.webp";
 
-const Header = () => {
+/**
+ * Header component
+ * @param {{ onNavigate?: (id:string)=>void }} props
+ */
+const Header = ({ onNavigate }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [, setIsScrolled] = useState(false);
   const navRef = useRef(null);
@@ -21,10 +26,14 @@ const Header = () => {
   const handleScrollToSection = (event, sectionId) => {
     event.preventDefault();
     setIsOpen(false);
-    document.getElementById(sectionId).scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
+    if (onNavigate) {
+      onNavigate(sectionId);
+    } else {
+      document.getElementById(sectionId)?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
   };
 
   useEffect(() => {
@@ -75,9 +84,13 @@ const Header = () => {
         <div
           className="md:hidden dark:text-white flex items-center cursor-pointer"
           onClick={toggleMenu}
+          role="button"
+          aria-label={isOpen ? "Close menu" : "Open menu"}
+          aria-expanded={isOpen}
         >
           {isOpen ? null : <Menu size={24} />}
         </div>
+
 
         {/* Navigation */}
         <nav
@@ -85,12 +98,15 @@ const Header = () => {
           className={`fixed inset-0 z-50 transform ${
             isOpen ? "translate-x-0" : "translate-x-full"
           } transition-transform duration-300 md:relative md:translate-x-0  md:flex items-center`} // Added backdrop-blur-lg
+          aria-label="Main navigation"
         >
           {/* Close button and Logo inside sidenav */}
           <div className="relative flex flex-col items-center w-full md:hidden ">
             <div
               className="absolute dark:text-white top-4 right-4 cursor-pointer"
               onClick={toggleMenu}
+              role="button"
+              aria-label="Close menu"
             >
               <X size={24} />
             </div>
@@ -104,54 +120,60 @@ const Header = () => {
   className={`flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6 md:mt-0 ${isOpen ? 'bg-white dark:bg-black' : ''} text-gray-900 dark:text-gray-100`}
 >            <li>
               <a
-                href=""
+                href="#services"
                 onClick={(e) => handleScrollToSection(e, "services")}
                 className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:text-purple-500 border-b-2 border-transparent hover:border-purple-500 transition-colors duration-300"
+                aria-label="Scroll to Services section"
               >
                 Services
               </a>
             </li>
             <li>
               <a
-                href=""
+                href="#experience"
                 onClick={(e) => handleScrollToSection(e, "experience")}
                 className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:text-purple-500 border-b-2 border-transparent hover:border-purple-500 transition-colors duration-300"
+                aria-label="Scroll to Experience section"
               >
                 Experience
               </a>
             </li>
             <li>
               <a
-                href=""
+                href="#projects"
                 onClick={(e) => handleScrollToSection(e, "projects")}
                 className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:text-purple-500 border-b-2 border-transparent hover:border-purple-500 transition-colors duration-300"
+                aria-label="Scroll to Projects section"
               >
                 Projects
               </a>
             </li>
             <li>
               <a
-                href=""
+                href="#skills"
                 onClick={(e) => handleScrollToSection(e, "skills")}
                 className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:text-purple-500 border-b-2 border-transparent hover:border-purple-500 transition-colors duration-300"
+                aria-label="Scroll to Skills section"
               >
                 Skills
               </a>
             </li>
             <li>
               <a
-                href=""
+                href="#about"
                 onClick={(e) => handleScrollToSection(e, "about")}
                 className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:text-purple-500 border-b-2 border-transparent hover:border-purple-500 transition-colors duration-300"
+                aria-label="Scroll to About section"
               >
                 About
               </a>
             </li>
             <li>
               <a
-                href=""
+                href="#contact"
                 onClick={(e) => handleScrollToSection(e, "contact")}
                 className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:text-purple-500 border-b-2 border-transparent hover:border-purple-500 transition-colors duration-300"
+                aria-label="Scroll to Contact section"
               >
                 Contact
               </a>
@@ -164,3 +186,6 @@ const Header = () => {
 };
 
 export default Header;
+Header.propTypes = {
+  onNavigate: PropTypes.func,
+};
