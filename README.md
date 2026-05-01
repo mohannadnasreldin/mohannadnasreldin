@@ -50,5 +50,4 @@
 ## 📊 GitHub Stats
 
 ![Stats](./github-stats.svg)
-![Streak](./github-streak.svg)
 ![Languages](./github-langs.svg)
