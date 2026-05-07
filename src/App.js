@@ -1,3 +1,4 @@
+import React, { Suspense, lazy } from 'react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import { Analytics } from '@vercel/analytics/react';
 import { ThemeProvider } from './context/ThemeContext';
@@ -14,16 +15,19 @@ import { CustomCursor } from "./ui";
 import SmoothScroll from "./components/SmoothScroll";
 import Reveal from "./components/Reveal";
 import ScrollProgress from "./components/ScrollProgress";
-import AnimatedBackground from "./components/Background3D";
 import ScrollToTop from "./components/ScrollToTop";
 import 'lenis/dist/lenis.css';
+
+const AnimatedBackground = lazy(() => import('./components/Background3D'));
 
 function App() {
   return (
     <ThemeProvider>
       <SmoothScroll>
         <ScrollProgress />
-        <AnimatedBackground className="fixed" />
+        <Suspense fallback={null}>
+          <AnimatedBackground className="fixed" />
+        </Suspense>
         <ScrollToTop />
         <div className="flex flex-col min-h-screen">
         <CustomCursor />
@@ -41,7 +45,7 @@ function App() {
             <Experience id="experience" aria-label="Professional Experience" />
           </Reveal>
 
-          <Reveal animation="reveal" delay={100}>
+          <Reveal>
             <Projects id="projects" aria-label="Portfolio Projects" />
           </Reveal>
 
