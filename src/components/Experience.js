@@ -1,11 +1,8 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { motion } from 'framer-motion';
+import { cardVariants } from '../animation/variants';
 import { FaGraduationCap, FaBriefcase, FaCalendar } from 'react-icons/fa';
-
-// Register the ScrollTrigger plugin
-gsap.registerPlugin(ScrollTrigger);
 
 const experiences = [
   {
@@ -57,70 +54,56 @@ const experiences = [
  * @param {{ id?: string }} props
  */
 const Experience = ({ id = 'experience' }) => {
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const elements = sectionRef.current.querySelectorAll('.experience-card');
-
-    elements.forEach((element, index) => {
-      gsap.fromTo(
-        element,
-        { opacity: 0, x: index % 2 === 0 ? '-100%' : '100%' }, // Start from left or right
-        {
-          opacity: 1,
-          x: '0%',
-          duration: 1.2,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: element,
-            start: 'top 80%',
-            end: 'top 30%',
-            scrub: true,
-          },
-        }
-      );
-    });
-  }, []);
-
   return (
     <section
-      ref={sectionRef}
       id={id}
-      className="py-20 px-4 bg-gray-100 dark:bg-black text-gray-900 dark:text-gray-100"
+      className="py-24 px-6 bg-transparent relative z-10"
     >
-      <div className="flex flex-col text-center items-center justify-center min-h-screen px-4">
-        <h1 className="text-4xl font-bold mb-2 sm:text-3xl">Experience</h1>
-        <h2 className="text-lg mb-16 text-purple-500 sm:mb-12">My Personal Journey</h2>
+      <div className="container-max flex flex-col items-center">
+        <h2 className="fluid-text-4xl font-bold mb-2 text-primary">Experience</h2>
+        <p className="fluid-text-lg mb-20 text-accent font-medium">My Personal Journey</p>
+        
         <div className="relative w-full max-w-4xl">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="h-full border-l-2 border-gray-700"></div>
+          {/* Timeline Vertical Line */}
+          <div className="absolute inset-y-0 left-6 md:left-1/2 -translate-x-1/2 flex items-center justify-center">
+            <div className="h-full border-l border-border-strong"></div>
           </div>
+          
           {experiences.map((exp, index) => (
-            <div key={index} className="experience-card flex flex-col items-center mb-8 relative">
+            <motion.div 
+              key={index} 
+              variants={cardVariants}
+              className={`experience-card flex flex-col mb-12 relative group ${
+                index % 2 === 0 ? 'md:items-end' : 'md:items-start'
+              }`}
+            >
+              {/* Dot / Icon on Timeline */}
               <div
-                className={`flex items-center justify-center w-10 h-10 mb-4 rounded-full bg-purple-600 z-10`}
+                className="absolute left-6 md:left-1/2 -translate-x-1/2 flex items-center justify-center w-12 h-12 rounded-full bg-surface border border-accent/20 text-accent shadow-[0_0_15px_rgba(79,110,247,0.15)] z-10 transition-transform group-hover:scale-110"
               >
                 {exp.type === 'education' ? (
-                  <FaGraduationCap className="text-white" />
+                  <FaGraduationCap size={20} />
                 ) : (
-                  <FaBriefcase className="text-white" />
+                  <FaBriefcase size={18} />
                 )}
               </div>
+              
+              {/* Card Content */}
               <div
-                className={`relative bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg max-w-xs md:${
+                className={`relative ml-16 md:ml-0 bg-surface p-8 rounded-xl border border-border hover:border-accent/30 transition-colors shadow-sm w-[calc(100%-4rem)] md:w-[calc(50%-2rem)] ${
                   index % 2 === 0
-                    ? 'ml-auto sm:ml-0 sm:mr-auto'
-                    : 'mr-auto sm:mr-0 sm:ml-auto'
+                    ? 'md:mr-[calc(50%+2rem)]'
+                    : 'md:ml-[calc(50%+2rem)]'
                 }`}
               >
-                <h3 className="text-2xl font-semibold sm:text-xl">{exp.role}</h3>
-                <p className="text-purple-400 sm:text-base">{exp.organization}</p>
-                <p className="text-gray-400 flex justify-center items-center sm:text-sm">
-                  <FaCalendar className="text-purple-500 mr-2" />
+                <h3 className="fluid-text-xl font-bold text-primary mb-2">{exp.role}</h3>
+                <p className="fluid-text-base text-accent font-medium mb-3">{exp.organization}</p>
+                <p className="fluid-text-sm text-tertiary flex items-center">
+                  <FaCalendar className="mr-2 opacity-70" />
                   {exp.duration}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

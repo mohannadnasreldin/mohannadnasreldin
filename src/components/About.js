@@ -1,67 +1,64 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
+import profilePic from "../assets/profilepic.png";
 
 /**
  * About section
  * @param {{ id?: string }} props
  */
 const About = ({ id = 'about' }) => {
-  const sectionRef = useRef(null);
-  const linesRef = useRef(null);
-
   const lines = [
     "I am a passionate Software Engineer and Web Developer with a degree in Computer Science and Artificial Intelligence from Helwan University.",
-    "My journey into tech began during my internship at Flextock, where I honed my skills in Full Stack Development.",
-    "I thrive on solving complex problems and enjoy collaborating closely with clients to deliver efficient and innovative solutions.",
-    "I'm eager to contribute my skills and enthusiasm to your team and help turn your ideas into reality.",
-    "Feel free to reach out to discuss how we can work together!",
+    "Expert in building scalable web applications using React, Node.js, and modern cloud technologies.",
+    "I thrive on solving complex problems and creating seamless user experiences that combine logic with aesthetics."
   ];
-
-  useEffect(() => {
-    const lines = linesRef.current.children;
-
-    gsap.fromTo(
-      lines,
-      { opacity: 0, y: 20 }, // Start with each line fully transparent and slightly below
-      {
-        opacity: 1, // Fade in to full opacity
-        y: 0, // Move to original position
-        duration: 0.5,
-        ease: 'power2.out',
-        stagger: 0.3, // Delay between each line's appearance
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 80%',
-          end: 'bottom 60%',
-          scrub: true,
-        },
-      }
-    );
-  }, []);
 
   return (
     <section
-      ref={sectionRef}
       id={id}
-      className="py-20 px-4 bg-gray-100 dark:bg-black"
+      className="py-24 px-6 bg-transparent relative z-10"
     >
-      <div className="container mx-auto max-w-3xl">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-6 text-gray-900 dark:text-gray-100">
+      <div className="container-max">
+        <div className="text-center mb-16">
+          <h2 className="fluid-text-4xl font-bold mb-6 text-primary">
             About Me
           </h2>
-          <div className="h-1 mx-auto bg-purple-500 w-24 opacity-75 my-0 py-0 rounded-t"></div>
+          <div className="h-1 mx-auto bg-accent w-24 opacity-75 my-0 py-0 rounded-t"></div>
         </div>
-        <div ref={linesRef}>
-          {lines.map((line, index) => (
-            <p key={index} className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-              {line}
-            </p>
-          ))}
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 max-w-5xl mx-auto">
+          {/* Profile Image with Glass Frame */}
+          <div className="relative group flex-shrink-0">
+            <div className="absolute -inset-4 bg-accent/20 rounded-2xl blur-2xl group-hover:bg-accent/30 transition-all duration-500"></div>
+            <div className="relative w-64 h-64 lg:w-80 lg:h-80 rounded-2xl overflow-hidden border border-white/10 backdrop-blur-sm bg-white/5 shadow-2xl">
+              <img 
+                src={profilePic} 
+                alt="Mohannad Nasreldin - Professional Software Engineer & Web Developer" 
+                className="w-full h-full object-contain grayscale hover:grayscale-0 transition-all duration-700 scale-110 hover:scale-100"
+              />
+            </div>
+            {/* Decorative Corner */}
+            <div className="absolute -bottom-2 -right-2 w-12 h-12 border-b-2 border-r-2 border-accent rounded-br-lg"></div>
+            <div className="absolute -top-2 -left-2 w-12 h-12 border-t-2 border-l-2 border-accent rounded-tl-lg"></div>
+          </div>
+
+          {/* Bio Text */}
+          <div className="flex-grow space-y-6">
+            {lines.map((line, index) => (
+              <p 
+                key={index} 
+                className="fluid-text-lg text-secondary leading-relaxed border-l-2 border-accent/20 pl-6 hover:border-accent transition-colors duration-300"
+              >
+                {line}
+              </p>
+            ))}
+            
+            <div className="pt-6">
+              <div className="inline-flex items-center space-x-2 text-accent font-mono text-sm tracking-widest uppercase">
+                <span className="w-8 h-[1px] bg-accent"></span>
+                <span>Software Engineer</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

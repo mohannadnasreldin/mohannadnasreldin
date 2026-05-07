@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -8,163 +8,49 @@ import {
   faLinkedin,
   faWhatsapp,
 } from "@fortawesome/free-brands-svg-icons";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 /**
  * Contact section
  * @param {{ id?: string }} props
  */
 const Contact = ({ id = "contact" }) => {
-  const sectionRef = useRef(null);
-  const headingRef = useRef(null);
-  const paragraphRef = useRef(null);
-  const iconsRef = useRef([]);
-  const buttonRef = useRef(null);
-
-  useEffect(() => {
-    const section = sectionRef.current;
-    const heading = headingRef.current;
-    const paragraph = paragraphRef.current;
-    const icons = iconsRef.current;
-    const button = buttonRef.current;
-
-    // Heading animation
-    gsap.fromTo(
-      heading,
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        scrollTrigger: {
-          trigger: section,
-          start: "top 80%",
-          end: "bottom 60%",
-          toggleActions: "play none none none",
-        },
-      }
-    );
-
-    // Paragraph animation
-    gsap.fromTo(
-      paragraph,
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        scrollTrigger: {
-          trigger: section,
-          start: "top 75%",
-          end: "bottom 55%",
-          toggleActions: "play none none none",
-        },
-      }
-    );
-
-    // Icons animation (staggering effect)
-    gsap.fromTo(
-      icons,
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1.5,
-        stagger: 0.2,
-        scrollTrigger: {
-          trigger: section,
-          start: "top 70%",
-          end: "bottom 50%",
-          toggleActions: "play none none none",
-        },
-      }
-    );
-
-    // Button animation
-    gsap.fromTo(
-      button,
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        scrollTrigger: {
-          trigger: section,
-          start: "top 65%",
-          end: "bottom 45%",
-          toggleActions: "play none none none",
-        },
-      }
-    );
-  }, []);
-
   return (
     <section
-      ref={sectionRef}
       id={id}
-      className="py-20 px-4 bg-gray-100 dark:bg-black text-gray-900 dark:text-white"
+      className="py-24 px-6 bg-transparent relative z-10"
     >
-      <div className="container mx-auto text-center">
-        <h2 ref={headingRef} className="text-3xl font-bold mb-8">
+      <div className="container-max text-center">
+        <h2 className="fluid-text-4xl font-bold mb-6 text-primary">
           Contact
         </h2>
-        <p ref={paragraphRef} className="mb-8">
+        <p className="mono-label mb-16">
           LET'S WORK TOGETHER
         </p>
-        <div className="mb-8 flex justify-center space-x-6">
-          <a
-            ref={(el) => (iconsRef.current[0] = el)}
-            href="https://github.com/mohannadnasreldin"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-400 hover:text-gray-900 dark:hover:text-white"
-          >
-            <FontAwesomeIcon icon={faGithub} size="2x" />
-          </a>
-          <a
-            ref={(el) => (iconsRef.current[1] = el)}
-            href="https://www.facebook.com/mohannad.nasraldin/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-400 hover:text-blue-700"
-          >
-            <FontAwesomeIcon icon={faFacebook} size="2x" />
-          </a>
-          <a
-            ref={(el) => (iconsRef.current[2] = el)}
-            href="https://www.instagram.com/anim._.honda/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-400 hover:text-purple-700"
-          >
-            <FontAwesomeIcon icon={faInstagram} size="2x" />
-          </a>
-          <a
-            ref={(el) => (iconsRef.current[3] = el)}
-            href="https://www.linkedin.com/in/mohannad-nasreldin/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-400 hover:text-blue-500"
-          >
-            <FontAwesomeIcon icon={faLinkedin} size="2x" />
-          </a>
-          <a
-            ref={(el) => (iconsRef.current[4] = el)}
-            href="https://wa.me/201287941698"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-400 hover:text-green-500"
-          >
-            <FontAwesomeIcon icon={faWhatsapp} size="2x" />
-          </a>
+        
+        <div className="mb-16 flex justify-center space-x-8">
+          {[
+            { icon: faGithub, href: "https://github.com/mohannadnasreldin", label: "GitHub" },
+            { icon: faFacebook, href: "https://www.facebook.com/mohannad.nasraldin/", label: "Facebook" },
+            { icon: faInstagram, href: "https://www.instagram.com/anim._.honda/", label: "Instagram" },
+            { icon: faLinkedin, href: "https://www.linkedin.com/in/mohannad-nasreldin/", label: "LinkedIn" },
+            { icon: faWhatsapp, href: "https://wa.me/201287941698", label: "WhatsApp" }
+          ].map((social, index) => (
+            <a
+              key={social.label}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-secondary hover:text-accent transition-colors duration-300"
+              aria-label={social.label}
+            >
+              <FontAwesomeIcon icon={social.icon} size="2x" />
+            </a>
+          ))}
         </div>
+        
         <a
-          ref={buttonRef}
           href="mailto:mohannadnasr.20@gmail.com"
-          className="inline-block bg-purple-500 text-white px-8 py-4 rounded-lg shadow-lg hover:bg-purple-600"
+          className="inline-flex items-center justify-center bg-accent text-white px-10 py-5 rounded-full font-bold fluid-text-lg hover:bg-accent-light transition-all shadow-xl shadow-accent/20"
         >
           Schedule a call
         </a>

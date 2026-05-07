@@ -1,7 +1,7 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { motion } from 'framer-motion';
+import { cardVariants } from '../animation/variants';
 import {
   FaLaptopCode,
   FaCamera,
@@ -10,9 +10,6 @@ import {
   FaDatabase,
 } from 'react-icons/fa';
 import { MdWeb, MdIntegrationInstructions } from 'react-icons/md';
-
-// Register the ScrollTrigger plugin
-gsap.registerPlugin(ScrollTrigger);
 
 const services = [
   {
@@ -62,52 +59,29 @@ const services = [
  * @param {{ id?: string }} props
  */
 const Services = ({ id = 'services' }) => {
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const elements = sectionRef.current.querySelectorAll('.service-card');
-
-    elements.forEach((element, index) => {
-      gsap.fromTo(
-        element,
-        { opacity: 0, y: 50 }, // Start state: hidden and slightly down
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: element, // Element that triggers the animation
-            start: 'top 80%', // Start when the top of the element is 80% down the viewport
-            end: 'top 30%', // End when the top of the element reaches 30% of the viewport
-            scrub: true,
-          },
-          delay: index * 0.2, // Stagger the animations for each card
-        }
-      );
-    });
-  }, []);
-
   return (
-    <section ref={sectionRef} id={id} className="py-20 px-4 bg-gray-100 dark:bg-black">
-      <div className="container mx-auto">
-        <h2 className="text-3xl font-bold mb-8 text-center text-gray-900 dark:text-gray-100">
+    <section id={id} className="py-24 px-6 bg-transparent relative z-10">
+      <div className="container-max">
+        <h2 className="fluid-text-4xl font-bold mb-16 text-center text-primary">
           Services
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
-            <div
+            <motion.div
               key={index}
-              className="service-card bg-white dark:bg-gray-900 p-6 shadow-lg rounded-lg text-center"
+              variants={cardVariants}
+              className="service-card group bg-surface border border-border p-8 rounded-2xl text-center transition-all duration-300 hover:border-accent/30 hover:-translate-y-2"
             >
-              <service.icon className="text-4xl mb-4 text-purple-500 mx-auto" />
-              <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-gray-100">
+              <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-xl bg-accent/10 text-accent transition-transform duration-500 group-hover:rotate-12">
+                <service.icon size={32} />
+              </div>
+              <h3 className="fluid-text-xl font-bold mb-3 text-primary">
                 {service.title}
               </h3>
-              <p className="text-gray-600 dark:text-gray-400">
+              <p className="fluid-text-sm text-secondary leading-relaxed">
                 {service.description}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
