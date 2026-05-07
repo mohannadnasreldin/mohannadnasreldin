@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import {
   SiHtml5,
-  SiCss3,
+  SiCss,
   SiJavascript,
   SiReact,
   SiAngular,
@@ -20,7 +20,7 @@ import { TbBrandCSharp } from "react-icons/tb";
 
 const skillsData = [
   { name: "HTML", icon: <SiHtml5 /> },
-  { name: "CSS", icon: <SiCss3 /> },
+  { name: "CSS", icon: <SiCss /> },
   { name: "JavaScript", icon: <SiJavascript /> },
   { name: "ReactJS", icon: <SiReact /> },
   { name: "Angular", icon: <SiAngular /> },
@@ -42,29 +42,40 @@ const skillsData = [
  */
 const Skills = ({ id = "skills" }) => {
   return (
-    <section id={id} className="py-20 px-4 bg-gray-100 dark:bg-black">
-      <div className="container mx-auto">
-        <h2 className="text-3xl font-bold mb-8 text-gray-900 dark:text-gray-100 text-center">
+    <section id={id} className="py-24 px-6 bg-transparent relative z-10">
+      <div className="container-max">
+        <h2 className="fluid-text-3xl font-bold mb-16 text-primary text-center">
           Skills
         </h2>
 
         <div className="relative w-full overflow-hidden">
           <div
-            className="skill-container flex justify-start items-center space-x-8 animate-scroll"
+            className="skill-container flex justify-start items-center space-x-12 animate-scroll"
             style={{
               display: "flex",
-              whiteSpace: "nowrap", // Ensure content stays on one line
+              whiteSpace: "nowrap",
             }}
           >
             {skillsData.concat(skillsData).map((skill, index) => (
               <div
                 key={index}
-                className="text-5xl text-purple-500 inline-block mx-4 cursor-pointer"
-                style={{ minWidth: "80px", textAlign: "center" }} // Adjust icon size and alignment
+                className="text-6xl text-accent inline-block mx-8 cursor-pointer transition-transform hover:scale-110"
+                style={{ minWidth: "100px", textAlign: "center" }}
+                title={skill.name}
+                aria-label={`Skill: ${skill.name}`}
               >
                 {skill.icon}
               </div>
             ))}
+          </div>
+          {/* Hidden list for SEO crawlers */}
+          <div className="sr-only">
+            <h3>Technical Expertise</h3>
+            <ul>
+              {skillsData.map((skill) => (
+                <li key={skill.name}>{skill.name}</li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>

@@ -1,4 +1,3 @@
-import React from "react";
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import { Analytics } from '@vercel/analytics/react';
 import { ThemeProvider } from './context/ThemeContext';
@@ -11,24 +10,56 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Experience from "./components/Experience";
 import Projects from "./components/Projects";
+import { CustomCursor } from "./ui";
+import SmoothScroll from "./components/SmoothScroll";
+import Reveal from "./components/Reveal";
+import ScrollProgress from "./components/ScrollProgress";
+import AnimatedBackground from "./components/Background3D";
+import ScrollToTop from "./components/ScrollToTop";
+import 'lenis/dist/lenis.css';
+
 function App() {
   return (
     <ThemeProvider>
-      <div className="flex flex-col min-h-screen">
+      <SmoothScroll>
+        <ScrollProgress />
+        <AnimatedBackground className="fixed" />
+        <ScrollToTop />
+        <div className="flex flex-col min-h-screen">
+        <CustomCursor />
         <SpeedInsights />
         <Analytics />
         <Header />
-        <main className="flex-grow">
+        <main className="relative z-10 flex-grow" role="main">
           <Hero id="home" />
-          <Services id="services" />
-          <Experience id="experience" />
-          <Projects id="projects" />
-          <Skills id="skills" />
-          <About id="about" />
-          <Contact id="contact" />
+          
+          <Reveal animation="slide-up" delay={100}>
+            <Services id="services" aria-label="Our Services" />
+          </Reveal>
+
+          <Reveal animation="3d-rotate" delay={200}>
+            <Experience id="experience" aria-label="Professional Experience" />
+          </Reveal>
+
+          <Reveal animation="reveal" delay={100}>
+            <Projects id="projects" aria-label="Portfolio Projects" />
+          </Reveal>
+
+          <Reveal animation="fade" delay={100}>
+            <Skills id="skills" aria-label="Technical Skills" />
+          </Reveal>
+
+          <Reveal animation="slide-up" delay={100}>
+            <About id="about" aria-label="About Me" />
+          </Reveal>
+
+          <Reveal animation="3d-rotate" delay={100}>
+            <Contact id="contact" aria-label="Contact Information" />
+          </Reveal>
         </main>
         <Footer />
       </div>
+      </SmoothScroll>
     </ThemeProvider>
   );
 }
