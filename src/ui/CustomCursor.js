@@ -25,7 +25,7 @@ export const CustomCursor = () => {
     const motionMq = window.matchMedia('(prefers-reduced-motion: reduce)');
 
     const update = () => {
-      setVisible(fineMq.matches && !motionMq.matches && !('ontouchstart' in window || navigator.maxTouchPoints > 0));
+      setVisible(fineMq.matches && !motionMq.matches);
     };
 
     update();
@@ -44,8 +44,22 @@ export const CustomCursor = () => {
       mouseRef.current.y = e.clientY;
     };
 
+    const handleTouch = (e) => {
+      if (e.touches && e.touches.length > 0) {
+        mouseRef.current.x = e.touches[0].clientX;
+        mouseRef.current.y = e.touches[0].clientY;
+      }
+    };
+
     window.addEventListener('mousemove', handleMove, { passive: true });
-    return () => window.removeEventListener('mousemove', handleMove);
+    window.addEventListener('touchstart', handleTouch, { passive: true });
+    window.addEventListener('touchmove', handleTouch, { passive: true });
+
+    return () => {
+      window.removeEventListener('mousemove', handleMove);
+      window.removeEventListener('touchstart', handleTouch);
+      window.removeEventListener('touchmove', handleTouch);
+    };
   }, []);
 
   // ---- 3. Hover detection ----
@@ -87,10 +101,7 @@ export const CustomCursor = () => {
     return () => cancelAnimationFrame(rafRef.current);
   }, []);
 
-  // ---- 5. Hide completely if not visible ----
-  if (!visible) return null;
-
-  // ---- 6. Render ----
+  // ---- 5. Render ----
   if (!visible) return null;
 
   return (
