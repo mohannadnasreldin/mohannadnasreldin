@@ -65,6 +65,9 @@ const Header = ({ onNavigate }) => {
             src={logo}
             alt="Mohannad Nasreldin"
             className={`h-8 w-auto ${isDarkMode ? "invert" : ""}`}
+            decoding="async"
+            width={32}
+            height={32}
           />
           <span className="hidden font-display text-sm font-semibold tracking-wide text-ink sm:inline">
             MN

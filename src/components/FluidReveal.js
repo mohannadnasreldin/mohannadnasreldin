@@ -22,11 +22,11 @@ const FluidReveal = ({
   end = "top 42%",
 }) => {
   const ref = useRef(null);
-  const { reducedMotion } = useFluidScroll();
+  const { skipMotion } = useFluidScroll();
 
   useEffect(() => {
     const el = ref.current;
-    if (!el || reducedMotion) return undefined;
+    if (!el || skipMotion) return undefined;
 
     const from = { ease: "none" };
     const to = { ease: "none", scrollTrigger: { trigger: el, start, end, scrub } };
@@ -58,7 +58,7 @@ const FluidReveal = ({
       tween.scrollTrigger?.kill();
       tween.kill();
     };
-  }, [reducedMotion, y, x, scaleFrom, rotate, opacity, scrub, start, end]);
+  }, [skipMotion, y, x, scaleFrom, rotate, opacity, scrub, start, end]);
 
   return (
     <div ref={ref} className={className}>

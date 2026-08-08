@@ -7,13 +7,13 @@ gsap.registerPlugin(ScrollTrigger);
 
 /** Hero exit choreography — content and 3D drift apart as you scroll into the story. */
 export const useStoryHeroScroll = (sectionRef, contentRef, sceneRef) => {
-  const { reducedMotion } = useFluidScroll();
+  const { skipMotion } = useFluidScroll();
 
   useEffect(() => {
     const section = sectionRef?.current;
     const content = contentRef?.current;
     const scene = sceneRef?.current;
-    if (!section || !content || reducedMotion) return undefined;
+    if (!section || !content || skipMotion) return undefined;
 
     const blobs = section.querySelectorAll("[data-hero-blob]");
     const strips = section.querySelector("[data-hero-strips]");
@@ -60,7 +60,7 @@ export const useStoryHeroScroll = (sectionRef, contentRef, sceneRef) => {
       tl.scrollTrigger?.kill();
       tl.kill();
     };
-  }, [sectionRef, contentRef, sceneRef, reducedMotion]);
+  }, [sectionRef, contentRef, sceneRef, skipMotion]);
 };
 
 export default useStoryHeroScroll;

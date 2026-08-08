@@ -24,11 +24,11 @@ const StoryParallax = ({
   trigger = null,
 }) => {
   const ref = useRef(null);
-  const { reducedMotion } = useFluidScroll();
+  const { skipMotion } = useFluidScroll();
 
   useEffect(() => {
     const el = ref.current;
-    if (!el || reducedMotion) return undefined;
+    if (!el || skipMotion) return undefined;
 
     const from = {
       ease: "none",
@@ -71,7 +71,7 @@ const StoryParallax = ({
       tween.kill();
     };
   }, [
-    reducedMotion,
+    skipMotion,
     y,
     x,
     scale,

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { Suspense, lazy, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowDownTrayIcon, ChevronDownIcon, EnvelopeIcon } from "@heroicons/react/24/outline";
@@ -10,11 +10,12 @@ import {
   FaFacebook,
 } from "react-icons/fa";
 import { Typewriter } from "react-simple-typewriter";
-import HeroScene3D from "./HeroScene3D";
-import LiquidGlassLens from "./ui/LiquidGlassLens";
 import { useFluidScroll } from "../context/FluidScrollContext";
 import useStoryHeroScroll from "./story/StoryHeroScroll";
 import cv from "../assets/CV.pdf";
+
+const HeroScene3D = lazy(() => import("./HeroScene3D"));
+const LiquidGlassLens = lazy(() => import("./ui/LiquidGlassLens"));
 
 const socials = [
   { href: "https://github.com/mohannadnasreldin", label: "GitHub", Icon: FaGithub },
@@ -24,13 +25,16 @@ const socials = [
   { href: "https://www.facebook.com/mohannad.nasraldin/", label: "Facebook", Icon: FaFacebook },
 ];
 
+const ROLES = ["Full-Stack Developer", "Problem Solver", "Systems Builder"];
+
 const Hero = ({ id = "home" }) => {
   const sectionRef = useRef(null);
   const contentRef = useRef(null);
   const sceneRef = useRef(null);
   const [downloading, setDownloading] = useState(false);
   const reduce = useReducedMotion();
-  const { scrollTo, reducedMotion } = useFluidScroll();
+  const { scrollTo, reducedMotion, liteMode } = useFluidScroll();
+  const richFx = !reduce && !liteMode;
 
   useStoryHeroScroll(sectionRef, contentRef, sceneRef);
 
@@ -55,7 +59,7 @@ const Hero = ({ id = "home" }) => {
       className="story-hero relative z-10 flex min-h-[115vh] items-center overflow-hidden bg-transparent"
     >
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        {!reduce && (
+        {richFx ? (
           <>
             <motion.div
               data-hero-blob
@@ -105,39 +109,53 @@ const Hero = ({ id = "home" }) => {
               transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
             />
           </>
+        ) : (
+          <div className="absolute inset-0 bg-hero-mesh opacity-80" />
         )}
       </div>
 
-      <div
-        data-hero-strips
-        className="pointer-events-none absolute inset-0 z-[1] flex"
-        aria-hidden="true"
-      >
-        {Array.from({ length: 14 }).map((_, i) => (
-          <div
-            key={i}
-            className="h-full flex-1 animate-refraction"
-            style={{
-              background:
-                "linear-gradient(90deg, rgba(217,217,217,0) 0%, rgba(0,0,0,0.45) 76%, rgba(255,255,255,0.22) 100%)",
-              mixBlendMode: "overlay",
-              animationDelay: `${i * 0.12}s`,
-              opacity: 0.45,
-            }}
-          />
-        ))}
-      </div>
+      {richFx ? (
+        <div
+          data-hero-strips
+          className="pointer-events-none absolute inset-0 z-[1] flex"
+          aria-hidden="true"
+        >
+          {Array.from({ length: 14 }).map((_, i) => (
+            <div
+              key={i}
+              className="h-full flex-1 animate-refraction"
+              style={{
+                background:
+                  "linear-gradient(90deg, rgba(217,217,217,0) 0%, rgba(0,0,0,0.45) 76%, rgba(255,255,255,0.22) 100%)",
+                mixBlendMode: "overlay",
+                animationDelay: `${i * 0.12}s`,
+                opacity: 0.45,
+              }}
+            />
+          ))}
+        </div>
+      ) : null}
 
       <div ref={sceneRef} className="absolute inset-0 z-0">
-        <HeroScene3D />
+        {richFx ? (
+          <Suspense fallback={null}>
+            <HeroScene3D />
+          </Suspense>
+        ) : null}
       </div>
-      <div className="noise-overlay absolute inset-0 z-[2]" aria-hidden="true" />
+      {richFx ? (
+        <div className="noise-overlay absolute inset-0 z-[2]" aria-hidden="true" />
+      ) : null}
 
       <div
         ref={contentRef}
         className="relative z-10 mx-auto flex w-full max-w-6xl flex-col px-4 pb-28 pt-32 sm:px-6 lg:px-8 lg:pt-36"
       >
-        <LiquidGlassLens width={160} height={160} borderRadius={80} blur={1.5} />
+        {richFx ? (
+          <Suspense fallback={null}>
+            <LiquidGlassLens width={160} height={160} borderRadius={80} blur={1.5} />
+          </Suspense>
+        ) : null}
 
         <div className="max-w-2xl">
           <motion.p
@@ -177,15 +195,19 @@ const Hero = ({ id = "home" }) => {
             transition={{ delay: 0.45, duration: 0.55 }}
             className="mt-5 text-xl font-medium text-accent-soft sm:text-2xl"
           >
-            <Typewriter
-              words={["Full-Stack Developer", "Problem Solver", "Systems Builder"]}
-              loop
-              cursor
-              cursorStyle="|"
-              typeSpeed={40}
-              deleteSpeed={28}
-              delaySpeed={2400}
-            />
+            {liteMode ? (
+              ROLES[0]
+            ) : (
+              <Typewriter
+                words={ROLES}
+                loop
+                cursor
+                cursorStyle="|"
+                typeSpeed={40}
+                deleteSpeed={28}
+                delaySpeed={2400}
+              />
+            )}
           </motion.p>
 
           <motion.p

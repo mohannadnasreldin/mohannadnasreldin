@@ -18,11 +18,11 @@ const CHAPTERS = [
 /** Fixed story rail — highlights the active chapter as you scroll. */
 const StoryRail = () => {
   const [active, setActive] = useState("home");
-  const { scrollTo, reducedMotion } = useFluidScroll();
+  const { scrollTo, skipMotion } = useFluidScroll();
   const railRef = useRef(null);
 
   useEffect(() => {
-    if (reducedMotion) return undefined;
+    if (skipMotion) return undefined;
 
     const triggers = CHAPTERS.map(({ id }) => {
       const el = document.getElementById(id);
@@ -38,9 +38,9 @@ const StoryRail = () => {
     }).filter(Boolean);
 
     return () => triggers.forEach((t) => t.kill());
-  }, [reducedMotion]);
+  }, [skipMotion]);
 
-  if (reducedMotion) return null;
+  if (skipMotion) return null;
 
   return (
     <nav

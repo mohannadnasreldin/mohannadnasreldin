@@ -16,13 +16,13 @@ const StoryHeading = ({
   align = "center",
 }) => {
   const rootRef = useRef(null);
-  const { reducedMotion } = useFluidScroll();
+  const { skipMotion } = useFluidScroll();
   const alignCls =
     align === "left" ? "text-left items-start" : "text-center items-center";
 
   useEffect(() => {
     const root = rootRef.current;
-    if (!root || reducedMotion) return undefined;
+    if (!root || skipMotion) return undefined;
 
     const chapterEl = root.querySelector("[data-story-chapter]");
     const titleEl = root.querySelector("[data-story-title]");
@@ -70,7 +70,7 @@ const StoryHeading = ({
       tl.scrollTrigger?.kill();
       tl.kill();
     };
-  }, [reducedMotion, title, subtitle]);
+  }, [skipMotion, title, subtitle]);
 
   return (
     <div

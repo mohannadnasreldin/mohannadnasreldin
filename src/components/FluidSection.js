@@ -19,12 +19,12 @@ const FluidSection = ({
 }) => {
   const sectionRef = useRef(null);
   const innerRef = useRef(null);
-  const { reducedMotion } = useFluidScroll();
+  const { skipMotion } = useFluidScroll();
 
   useEffect(() => {
     const section = sectionRef.current;
     const inner = innerRef.current;
-    if (!section || reducedMotion) return undefined;
+    if (!section || skipMotion) return undefined;
 
     const tweens = [];
 
@@ -72,7 +72,7 @@ const FluidSection = ({
       t.scrollTrigger?.kill();
       t.kill();
     });
-  }, [reducedMotion, drift]);
+  }, [skipMotion, drift]);
 
   return (
     <section

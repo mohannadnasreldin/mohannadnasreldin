@@ -164,6 +164,7 @@ const Projects = ({ id = "projects" }) => {
                     alt={project.title}
                     className="h-full w-full object-cover transition-transform duration-500 ease-expo group-hover:scale-105"
                     loading="lazy"
+                    decoding="async"
                   />
                 ) : (
                   <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-accent/10 via-transparent to-accent/5">
@@ -172,7 +173,7 @@ const Projects = ({ id = "projects" }) => {
                     </span>
                   </div>
                 )}
-                <span className="absolute left-3 top-3 rounded-full border border-glass-border bg-black/40 px-3 py-1 text-xs font-medium text-white backdrop-blur-md">
+                <span className="absolute left-3 top-3 rounded-full border border-glass-border bg-black/70 px-3 py-1 text-xs font-medium text-white">
                   {project.category}
                 </span>
               </div>

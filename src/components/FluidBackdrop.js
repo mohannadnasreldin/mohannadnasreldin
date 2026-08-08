@@ -11,11 +11,11 @@ gsap.registerPlugin(ScrollTrigger);
  */
 const FluidBackdrop = () => {
   const rootRef = useRef(null);
-  const { reducedMotion } = useFluidScroll();
+  const { skipMotion } = useFluidScroll();
 
   useEffect(() => {
     const root = rootRef.current;
-    if (!root || reducedMotion) return undefined;
+    if (!root || skipMotion) return undefined;
 
     const layers = root.querySelectorAll("[data-parallax]");
     const tweens = [];
@@ -54,7 +54,32 @@ const FluidBackdrop = () => {
     return () => {
       tweens.forEach((t) => t.kill());
     };
-  }, [reducedMotion]);
+  }, [skipMotion]);
+
+  if (skipMotion) {
+    return (
+      <div
+        className="pointer-events-none fixed inset-0 z-0 overflow-hidden"
+        aria-hidden="true"
+      >
+        <div className="absolute inset-0 bg-surface-deep" />
+        <div
+          className="absolute -left-[30%] top-[-15%] h-[50vh] w-[70vw] rounded-full opacity-40"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(3,103,254,0.38) 0%, transparent 70%)",
+          }}
+        />
+        <div
+          className="absolute -right-[20%] top-[30%] h-[42vh] w-[55vw] rounded-full opacity-35"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(56,189,248,0.28) 0%, transparent 70%)",
+          }}
+        />
+      </div>
+    );
+  }
 
   return (
     <div

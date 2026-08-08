@@ -3,6 +3,7 @@ import * as THREE from "three";
 
 /**
  * Full-bleed animated 3D hero scene: glass torus knot, orbiting orbs, particle field.
+ * Desktop-only; paused when off-screen or the tab is hidden.
  */
 const HeroScene3D = () => {
   const mountRef = useRef(null);
@@ -14,12 +15,15 @@ const HeroScene3D = () => {
     const reduce =
       window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches ?? false;
 
+    const dprCap = 1.25;
     const renderer = new THREE.WebGLRenderer({
-      antialias: true,
+      antialias: window.devicePixelRatio < 1.25,
       alpha: true,
       powerPreference: "high-performance",
+      stencil: false,
+      depth: true,
     });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.75));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, dprCap));
     renderer.setSize(mount.clientWidth, mount.clientHeight);
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -64,7 +68,7 @@ const HeroScene3D = () => {
     });
 
     const knot = new THREE.Mesh(
-      new THREE.TorusKnotGeometry(0.85, 0.28, 180, 28),
+      new THREE.TorusKnotGeometry(0.85, 0.28, 128, 16),
       glassMat
     );
     knot.position.set(1.35, 0.1, 0);
@@ -82,7 +86,7 @@ const HeroScene3D = () => {
     wire.position.copy(knot.position);
     group.add(wire);
 
-    const orbGeo = new THREE.SphereGeometry(0.18, 32, 32);
+    const orbGeo = new THREE.SphereGeometry(0.18, 16, 16);
     const orbs = [-1.1, 0, 1.1].map((offset, i) => {
       const mat = new THREE.MeshStandardMaterial({
         color: i === 1 ? 0x7dd3fc : 0x22d3ee,
@@ -99,7 +103,7 @@ const HeroScene3D = () => {
       return mesh;
     });
 
-    const particleCount = 120;
+    const particleCount = 64;
     const positions = new Float32Array(particleCount * 3);
     for (let i = 0; i < particleCount; i += 1) {
       positions[i * 3] = (Math.random() - 0.5) * 10;
@@ -129,9 +133,12 @@ const HeroScene3D = () => {
     mount.addEventListener("pointermove", onPointer, { passive: true });
 
     let raf;
+    let visible = true;
     const clock = new THREE.Clock();
 
     const render = () => {
+      if (!visible || document.hidden) return;
+
       const t = clock.getElapsedTime();
 
       if (!reduce) {
@@ -160,11 +167,24 @@ const HeroScene3D = () => {
       renderer.render(scene, camera);
       raf = requestAnimationFrame(render);
     };
-    render();
+
+    const startLoop = () => {
+      if (document.hidden || !visible) return;
+      cancelAnimationFrame(raf);
+      clock.getDelta();
+      raf = requestAnimationFrame(render);
+    };
+
+    const stopLoop = () => {
+      cancelAnimationFrame(raf);
+    };
+
+    startLoop();
 
     const onResize = () => {
       if (!mount) return;
       const { clientWidth, clientHeight } = mount;
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, dprCap));
       renderer.setSize(clientWidth, clientHeight);
       camera.aspect = clientWidth / clientHeight;
       camera.updateProjectionMatrix();
@@ -172,13 +192,27 @@ const HeroScene3D = () => {
     window.addEventListener("resize", onResize);
 
     const onVisibility = () => {
-      if (document.hidden) cancelAnimationFrame(raf);
-      else render();
+      if (document.hidden) stopLoop();
+      else startLoop();
     };
     document.addEventListener("visibilitychange", onVisibility);
 
+    const io =
+      typeof IntersectionObserver !== "undefined"
+        ? new IntersectionObserver(
+            ([entry]) => {
+              visible = Boolean(entry?.isIntersecting);
+              if (visible) startLoop();
+              else stopLoop();
+            },
+            { threshold: 0.05 }
+          )
+        : null;
+    io?.observe(mount);
+
     return () => {
-      cancelAnimationFrame(raf);
+      stopLoop();
+      io?.disconnect();
       mount.removeEventListener("pointermove", onPointer);
       window.removeEventListener("resize", onResize);
       document.removeEventListener("visibilitychange", onVisibility);

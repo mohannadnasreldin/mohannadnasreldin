@@ -21,6 +21,7 @@ import GlassPanel from "./ui/GlassPanel";
 import FluidSection from "./FluidSection";
 import FluidReveal from "./FluidReveal";
 import StoryParallax from "./story/StoryParallax";
+import { useFluidScroll } from "../context/FluidScrollContext";
 
 const skillsData = [
   { name: "HTML", Icon: SiHtml5 },
@@ -40,7 +41,8 @@ const skillsData = [
 ];
 
 const Skills = ({ id = "skills" }) => {
-  const loop = [...skillsData, ...skillsData];
+  const { skipMotion } = useFluidScroll();
+  const loop = skipMotion ? skillsData : [...skillsData, ...skillsData];
 
   return (
     <FluidSection id={id} labelledBy="skills-heading" drift={16}>
@@ -58,7 +60,13 @@ const Skills = ({ id = "skills" }) => {
             <div className="relative">
               <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-surface-deep/80 to-transparent" />
               <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-surface-deep/80 to-transparent" />
-              <div className="flex w-max animate-marquee gap-4 px-4 hover:[animation-play-state:paused]">
+              <div
+                className={
+                  skipMotion
+                    ? "flex flex-wrap justify-center gap-4 px-4"
+                    : "flex w-max animate-marquee gap-4 px-4 hover:[animation-play-state:paused]"
+                }
+              >
                 {loop.map((skill, index) => (
                   <div
                     key={`${skill.name}-${index}`}

@@ -63,12 +63,12 @@ const experiences = [
 const Experience = ({ id = "experience" }) => {
   const timelineRef = useRef(null);
   const listRef = useRef(null);
-  const { reducedMotion } = useFluidScroll();
+  const { skipMotion } = useFluidScroll();
 
   useEffect(() => {
     const line = timelineRef.current;
     const list = listRef.current;
-    if (!line || !list || reducedMotion) return undefined;
+    if (!line || !list || skipMotion) return undefined;
 
     const tween = gsap.fromTo(
       line,
@@ -89,7 +89,7 @@ const Experience = ({ id = "experience" }) => {
       tween.scrollTrigger?.kill();
       tween.kill();
     };
-  }, [reducedMotion]);
+  }, [skipMotion]);
 
   return (
     <FluidSection id={id} labelledBy="experience-heading" drift={28}>
@@ -120,7 +120,7 @@ const Experience = ({ id = "experience" }) => {
                     : "md:justify-start md:pl-[calc(50%+1.5rem)]"
                 }`}
               >
-                <span className="absolute left-6 z-10 flex h-10 w-10 -translate-x-1/2 items-center justify-center rounded-full border border-accent/40 bg-surface-deep/80 text-accent shadow-glow backdrop-blur-md md:left-1/2">
+                <span className="absolute left-6 z-10 flex h-10 w-10 -translate-x-1/2 items-center justify-center rounded-full border border-accent/40 bg-surface-deep text-accent shadow-glow md:left-1/2">
                   {exp.type === "education" ? (
                     <AcademicCapIcon className="h-5 w-5" aria-hidden="true" />
                   ) : (
