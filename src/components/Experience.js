@@ -1,130 +1,162 @@
-import React, { useEffect, useRef } from 'react';
-import PropTypes from 'prop-types';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { FaGraduationCap, FaBriefcase, FaCalendar } from 'react-icons/fa';
+import React, { useEffect, useRef } from "react";
+import PropTypes from "prop-types";
+import {
+  AcademicCapIcon,
+  BriefcaseIcon,
+  CalendarDaysIcon,
+} from "@heroicons/react/24/outline";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import GlassPanel from "./ui/GlassPanel";
+import StoryHeading from "./story/StoryHeading";
+import FluidSection from "./FluidSection";
+import FluidReveal from "./FluidReveal";
+import { useFluidScroll } from "../context/FluidScrollContext";
 
-// Register the ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
 const experiences = [
   {
-    role: 'Computer Science',
-    organization: 'Helwan University',
-    duration: '2020 - 2024',
-    type: 'education'
+    role: "Computer Science",
+    organization: "Helwan University",
+    duration: "2020 – 2024",
+    type: "education",
   },
   {
-    role: 'Full-Stack Developer',
-    organization: 'Internship @ Flextock',
-    duration: '2023',
-    type: 'work'
+    role: "Full-Stack Developer",
+    organization: "Internship @ Flextock",
+    duration: "2023",
+    type: "work",
   },
   {
-    role: 'Front-End Developer',
-    organization: 'Freelance @ Illusionare',
-    duration: '2024',
-    type: 'work'
+    role: "Front-End Developer",
+    organization: "Freelance @ Illusionare",
+    duration: "2024",
+    type: "work",
   },
   {
-    role: 'Software Engineer',
-    organization: 'Part-Time @ Aydn Labs',
-    duration: '2025',
-    type: 'work'
+    role: "Software Engineer",
+    organization: "Part-Time @ Aydn Labs",
+    duration: "2025",
+    type: "work",
   },
-{
-    role: 'Software Engineer',
-    organization: 'Internship @ IFIN Services',
-    duration: '2025',
-    type: 'work'
-},
-{
-    role: 'Software Engineer',
-    organization: 'Full-Time @ IFIN Services',
-    duration: '2025',
-    type: 'work'
-},
-{
-    role: 'System Specialist',
-    organization: 'Full-Time @ Egypt Air',
-    duration: '2025',
-    type: 'work'
-}
+  {
+    role: "Software Engineer",
+    organization: "Internship @ IFIN Services",
+    duration: "2025",
+    type: "work",
+  },
+  {
+    role: "Software Engineer",
+    organization: "Full-Time @ IFIN Services",
+    duration: "2025",
+    type: "work",
+  },
+  {
+    role: "System Specialist",
+    organization: "Full-Time @ Egypt Air",
+    duration: "2025",
+    type: "work",
+  },
 ];
 
-/**
- * Experience section
- * @param {{ id?: string }} props
- */
-const Experience = ({ id = 'experience' }) => {
-  const sectionRef = useRef(null);
+const Experience = ({ id = "experience" }) => {
+  const timelineRef = useRef(null);
+  const listRef = useRef(null);
+  const { reducedMotion } = useFluidScroll();
 
   useEffect(() => {
-    const elements = sectionRef.current.querySelectorAll('.experience-card');
+    const line = timelineRef.current;
+    const list = listRef.current;
+    if (!line || !list || reducedMotion) return undefined;
 
-    elements.forEach((element, index) => {
-      gsap.fromTo(
-        element,
-        { opacity: 0, x: index % 2 === 0 ? '-100%' : '100%' }, // Start from left or right
-        {
-          opacity: 1,
-          x: '0%',
-          duration: 1.2,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: element,
-            start: 'top 80%',
-            end: 'top 30%',
-            scrub: true,
-          },
-        }
-      );
-    });
-  }, []);
+    const tween = gsap.fromTo(
+      line,
+      { scaleY: 0, transformOrigin: "top center" },
+      {
+        scaleY: 1,
+        ease: "none",
+        scrollTrigger: {
+          trigger: list,
+          start: "top 75%",
+          end: "bottom 60%",
+          scrub: 0.6,
+        },
+      }
+    );
+
+    return () => {
+      tween.scrollTrigger?.kill();
+      tween.kill();
+    };
+  }, [reducedMotion]);
 
   return (
-    <section
-      ref={sectionRef}
-      id={id}
-      className="py-20 px-4 bg-gray-100 dark:bg-black text-gray-900 dark:text-gray-100"
-    >
-      <div className="flex flex-col text-center items-center justify-center min-h-screen px-4">
-        <h1 className="text-4xl font-bold mb-2 sm:text-3xl">Experience</h1>
-        <h2 className="text-lg mb-16 text-purple-500 sm:mb-12">My Personal Journey</h2>
-        <div className="relative w-full max-w-4xl">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="h-full border-l-2 border-gray-700"></div>
-          </div>
-          {experiences.map((exp, index) => (
-            <div key={index} className="experience-card flex flex-col items-center mb-8 relative">
-              <div
-                className={`flex items-center justify-center w-10 h-10 mb-4 rounded-full bg-purple-600 z-10`}
-              >
-                {exp.type === 'education' ? (
-                  <FaGraduationCap className="text-white" />
-                ) : (
-                  <FaBriefcase className="text-white" />
-                )}
-              </div>
-              <div
-                className={`relative bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg max-w-xs md:${
-                  index % 2 === 0
-                    ? 'ml-auto sm:ml-0 sm:mr-auto'
-                    : 'mr-auto sm:mr-0 sm:ml-auto'
+    <FluidSection id={id} labelledBy="experience-heading" drift={28}>
+      <StoryHeading
+        id="experience-heading"
+        chapter={2}
+        chapterLabel="Journey"
+        title="Experience"
+        subtitle="My personal journey across education, products, and production systems."
+      />
+
+      <div ref={listRef} className="relative mx-auto max-w-3xl">
+        <div
+          ref={timelineRef}
+          className="absolute bottom-2 left-6 top-2 w-px origin-top bg-gradient-to-b from-accent via-accent/50 to-transparent md:left-1/2"
+          aria-hidden="true"
+        />
+
+        <ul className="space-y-8">
+          {experiences.map((exp, index) => {
+            const left = index % 2 === 0;
+            return (
+              <li
+                key={`${exp.organization}-${exp.role}-${exp.duration}`}
+                className={`relative flex md:justify-center ${
+                  left
+                    ? "md:justify-end md:pr-[calc(50%+1.5rem)]"
+                    : "md:justify-start md:pl-[calc(50%+1.5rem)]"
                 }`}
               >
-                <h3 className="text-2xl font-semibold sm:text-xl">{exp.role}</h3>
-                <p className="text-purple-400 sm:text-base">{exp.organization}</p>
-                <p className="text-gray-400 flex justify-center items-center sm:text-sm">
-                  <FaCalendar className="text-purple-500 mr-2" />
-                  {exp.duration}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
+                <span className="absolute left-6 z-10 flex h-10 w-10 -translate-x-1/2 items-center justify-center rounded-full border border-accent/40 bg-surface-deep/80 text-accent shadow-glow backdrop-blur-md md:left-1/2">
+                  {exp.type === "education" ? (
+                    <AcademicCapIcon className="h-5 w-5" aria-hidden="true" />
+                  ) : (
+                    <BriefcaseIcon className="h-5 w-5" aria-hidden="true" />
+                  )}
+                </span>
+
+                <FluidReveal
+                  className="ml-14 w-full max-w-sm md:ml-0"
+                  y={48}
+                  x={left ? -56 : 56}
+                  scaleFrom={0.92}
+                  scrub={0.7}
+                >
+                  <GlassPanel className="w-full rounded-2xl p-5">
+                    <h3 className="font-display text-xl font-semibold text-ink">
+                      {exp.role}
+                    </h3>
+                    <p className="mt-1 text-sm font-medium text-accent">
+                      {exp.organization}
+                    </p>
+                    <p className="mt-3 inline-flex items-center gap-2 text-sm text-ink-muted">
+                      <CalendarDaysIcon
+                        className="h-4 w-4 text-accent"
+                        aria-hidden="true"
+                      />
+                      {exp.duration}
+                    </p>
+                  </GlassPanel>
+                </FluidReveal>
+              </li>
+            );
+          })}
+        </ul>
       </div>
-    </section>
+    </FluidSection>
   );
 };
 

@@ -12,67 +12,76 @@ import {
   SiC,
   SiPhp,
   SiDjango,
-  SiMattermost,
   SiGithub,
 } from "react-icons/si";
 import { VscVscode } from "react-icons/vsc";
 import { TbBrandCSharp } from "react-icons/tb";
+import StoryHeading from "./story/StoryHeading";
+import GlassPanel from "./ui/GlassPanel";
+import FluidSection from "./FluidSection";
+import FluidReveal from "./FluidReveal";
+import StoryParallax from "./story/StoryParallax";
 
 const skillsData = [
-  { name: "HTML", icon: <SiHtml5 /> },
-  { name: "CSS", icon: <SiCss3 /> },
-  { name: "JavaScript", icon: <SiJavascript /> },
-  { name: "ReactJS", icon: <SiReact /> },
-  { name: "Angular", icon: <SiAngular /> },
-  { name: "TypeScript", icon: <SiTypescript /> },
-  { name: "NodeJS", icon: <SiNodedotjs /> },
-  { name: "Python", icon: <SiPython /> },
-  { name: "C", icon: <SiC /> },
-  { name: "C#", icon: <TbBrandCSharp /> },
-  { name: "PHP", icon: <SiPhp /> },
-  { name: "Django", icon: <SiDjango /> },
-  { name: "Matter JS", icon: <SiMattermost /> },
-  { name: "GitHub", icon: <SiGithub /> },
-  { name: "VS Code", icon: <VscVscode /> },
+  { name: "HTML", Icon: SiHtml5 },
+  { name: "CSS", Icon: SiCss3 },
+  { name: "JavaScript", Icon: SiJavascript },
+  { name: "React", Icon: SiReact },
+  { name: "Angular", Icon: SiAngular },
+  { name: "TypeScript", Icon: SiTypescript },
+  { name: "Node.js", Icon: SiNodedotjs },
+  { name: "Python", Icon: SiPython },
+  { name: "C", Icon: SiC },
+  { name: "C#", Icon: TbBrandCSharp },
+  { name: "PHP", Icon: SiPhp },
+  { name: "Django", Icon: SiDjango },
+  { name: "GitHub", Icon: SiGithub },
+  { name: "VS Code", Icon: VscVscode },
 ];
 
-/**
- * Skills section
- * @param {{ id?: string }} props
- */
 const Skills = ({ id = "skills" }) => {
-  return (
-    <section id={id} className="py-20 px-4 bg-gray-100 dark:bg-black">
-      <div className="container mx-auto">
-        <h2 className="text-3xl font-bold mb-8 text-gray-900 dark:text-gray-100 text-center">
-          Skills
-        </h2>
+  const loop = [...skillsData, ...skillsData];
 
-        <div className="relative w-full overflow-hidden">
-          <div
-            className="skill-container flex justify-start items-center space-x-8 animate-scroll"
-            style={{
-              display: "flex",
-              whiteSpace: "nowrap", // Ensure content stays on one line
-            }}
-          >
-            {skillsData.concat(skillsData).map((skill, index) => (
-              <div
-                key={index}
-                className="text-5xl text-purple-500 inline-block mx-4 cursor-pointer"
-                style={{ minWidth: "80px", textAlign: "center" }} // Adjust icon size and alignment
-              >
-                {skill.icon}
+  return (
+    <FluidSection id={id} labelledBy="skills-heading" drift={16}>
+      <StoryHeading
+        id="skills-heading"
+        chapter={4}
+        chapterLabel="Craft"
+        title="Skills"
+        subtitle="Tools and languages I reach for every day."
+      />
+
+      <StoryParallax y={30} scrub={0.8} start="top 85%" end="top 25%">
+        <FluidReveal y={24} scrub={0.6}>
+          <GlassPanel className="overflow-hidden rounded-2xl py-8">
+            <div className="relative">
+              <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-surface-deep/80 to-transparent" />
+              <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-surface-deep/80 to-transparent" />
+              <div className="flex w-max animate-marquee gap-4 px-4 hover:[animation-play-state:paused]">
+                {loop.map((skill, index) => (
+                  <div
+                    key={`${skill.name}-${index}`}
+                    className="flex min-w-[7.5rem] flex-col items-center gap-3 rounded-2xl border border-glass-border bg-glass-bg px-5 py-4 text-accent"
+                    title={skill.name}
+                  >
+                    <skill.Icon className="h-9 w-9" aria-hidden="true" />
+                    <span className="text-xs font-medium text-ink-muted">
+                      {skill.name}
+                    </span>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
+            </div>
+          </GlassPanel>
+        </FluidReveal>
+      </StoryParallax>
+    </FluidSection>
   );
 };
 
-export default Skills;
 Skills.propTypes = {
   id: PropTypes.string,
 };
+
+export default Skills;

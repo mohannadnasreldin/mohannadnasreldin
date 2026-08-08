@@ -1,243 +1,270 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import PropTypes from "prop-types";
-import { LazyMotion, domAnimation, m as motion, useReducedMotion } from "framer-motion";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { motion, useReducedMotion } from "framer-motion";
+import { ArrowDownTrayIcon, ChevronDownIcon, EnvelopeIcon } from "@heroicons/react/24/outline";
 import {
-  faGithub,
-  faFacebook,
-  faInstagram,
-  faLinkedin,
-  faWhatsapp,
-} from "@fortawesome/free-brands-svg-icons";
-import {
-  faDownload,
-  faEnvelope,
-} from "@fortawesome/free-solid-svg-icons";
+  FaGithub,
+  FaLinkedin,
+  FaWhatsapp,
+  FaInstagram,
+  FaFacebook,
+} from "react-icons/fa";
 import { Typewriter } from "react-simple-typewriter";
-import { SiReact, SiJavascript, SiTypescript, SiHtml5, SiCss3, SiNodedotjs } from "react-icons/si";
-import { fadeInUp, slideInRight, staggerContainer, scaleOnHover } from "../animation/variants";
-import Background3D from "./Background3D";
-import ProjectsCarousel from "./ProjectsCarousel";
-import ResponsiveImageFrame from "./ResponsiveImageFrame";
+import HeroScene3D from "./HeroScene3D";
+import LiquidGlassLens from "./ui/LiquidGlassLens";
+import { useFluidScroll } from "../context/FluidScrollContext";
+import useStoryHeroScroll from "./story/StoryHeroScroll";
 import cv from "../assets/CV.pdf";
-import profilePic from "../assets/profilepic.png";
-import bmi from "../assets/BMI-Calculator-App.png";
-import TDL from "../assets/To-Do-List.png";
-import ecommerce from "../assets/E-commerce.png";
-import city from "../assets/City Organization.png";
 
-/**
- * Layout patterns & design decisions
- * - Two‑column responsive grid: single column on small screens, split on large screens.
- * - Visual hierarchy: prominent heading, highlighted role, supportive description, clear CTAs.
- * - Consistent spacing: responsive gaps/padding via Tailwind breakpoints.
- * - Accessibility: keyboard‑navigable buttons/links with focus rings; reduced motion respected.
- * - Contrast: purple accent on light/dark surfaces; improved legibility with larger text/leading.
- * - Media sizing: aspect‑ratio utilities to keep image framing consistent across breakpoints.
- */
+const socials = [
+  { href: "https://github.com/mohannadnasreldin", label: "GitHub", Icon: FaGithub },
+  { href: "https://www.linkedin.com/in/mohannad-nasreldin/", label: "LinkedIn", Icon: FaLinkedin },
+  { href: "https://wa.me/201287941698", label: "WhatsApp", Icon: FaWhatsapp },
+  { href: "https://www.instagram.com/anim._.honda/", label: "Instagram", Icon: FaInstagram },
+  { href: "https://www.facebook.com/mohannad.nasraldin/", label: "Facebook", Icon: FaFacebook },
+];
+
 const Hero = ({ id = "home" }) => {
-  const [isDownloading, setIsDownloading] = useState(false);
+  const sectionRef = useRef(null);
+  const contentRef = useRef(null);
+  const sceneRef = useRef(null);
+  const [downloading, setDownloading] = useState(false);
   const reduce = useReducedMotion();
-  const revealProps = reduce
-    ? {}
-    : { initial: "hidden", whileInView: "visible", viewport: { once: true, amount: 0.3 } };
+  const { scrollTo, reducedMotion } = useFluidScroll();
 
-  const handleScrollToSection = (event, sectionId) => {
-    event.preventDefault();
-    const el = document.getElementById(sectionId);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
-  };
+  useStoryHeroScroll(sectionRef, contentRef, sceneRef);
 
-  const handleDownload = () => {
-    setIsDownloading(true);
+  const downloadCv = () => {
+    setDownloading(true);
     const link = document.createElement("a");
     link.href = cv;
-    link.setAttribute("download", "cv.pdf");
+    link.setAttribute("download", "Mohannad_Nasreldin_CV.pdf");
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    setIsDownloading(false);
+    setDownloading(false);
   };
 
-  const featuredProjects = [
-    { title: "City Organization", img: city, href: "#projects" },
-    { title: "BMI Calculator", img: bmi, href: "#projects" },
-    { title: "To-Do List", img: TDL, href: "#projects" },
-    { title: "E-Commerce UI", img: ecommerce, href: "#projects" },
-  ];
+  const nameWords = ["Mohannad", "Nasreldin"];
 
   return (
     <section
+      ref={sectionRef}
       id={id}
       aria-labelledby="hero-heading"
-      className="relative bg-gray-100 dark:bg-black text-gray-900 dark:text-gray-100"
+      className="story-hero relative z-10 flex min-h-[115vh] items-center overflow-hidden bg-transparent"
     >
-      <Background3D />
-      <div className="container mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 py-14 md:py-20 lg:py-28">
-        <LazyMotion features={domAnimation}>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center lg:items-start">
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+        {!reduce && (
+          <>
             <motion.div
-              variants={staggerContainer}
-              {...revealProps}
-              className="flex flex-col gap-6 md:gap-8 items-center lg:items-start text-center lg:text-left"
-              style={{ willChange: "transform" }}
-            >
-              <div className="relative mx-auto w-full max-w-sm sm:max-w-md">
-                <div className="absolute -inset-1 rounded-3xl bg-gradient-to-tr from-purple-600 via-fuchsia-500 to-indigo-600 blur opacity-30"></div>
-                <ResponsiveImageFrame
-                  src={profilePic}
-                  alt="Mohannad Nasreldin portrait"
-                  className="h-[48vh]"
-                />
-              </div>
-            </motion.div>
+              data-hero-blob
+              className="absolute rounded-full"
+              style={{
+                width: "min(560px, 55vw)",
+                height: "min(560px, 55vw)",
+                left: "-8%",
+                top: "10%",
+                background:
+                  "radial-gradient(circle, #0367FE 0%, #0256CC 55%, transparent 70%)",
+                filter: "blur(120px)",
+                opacity: 0.55,
+              }}
+              animate={{ x: [0, 40, 0], y: [0, -50, 0], scale: [1, 1.15, 1] }}
+              transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
+            />
             <motion.div
-              variants={slideInRight}
-              {...revealProps}
-              className="flex flex-col gap-6"
-              style={{ willChange: "transform" }}
-            >
-                            <motion.h1
-                variants={fadeInUp}
-                id="hero-heading"
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight"
-              >
-                <span className="text-gray-900 dark:text-gray-100">Mohannad Nasreldin</span>
-              </motion.h1>
-              <motion.p
-                variants={fadeInUp}
-                className="text-lg sm:text-xl md:text-2xl font-semibold text-purple-600 dark:text-purple-400"
-              >
-                <span className="typewriter-text">
-                  <Typewriter
-                    words={["Software Engineer", "Full‑Stack Developer", "Problem Solver"]}
-                    loop
-                    cursor
-                    cursorStyle="-"
-                    typeSpeed={30}
-                    deleteSpeed={30}
-                    delaySpeed={3000}
-                  />
-                </span>
-              </motion.p>
-              <motion.p
-                variants={fadeInUp}
-                className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed max-w-prose"
-              >
-                Building accessible, high‑performance experiences with modern JavaScript, React, and scalable backends.
-              </motion.p>
-              <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
-                {/* <motion.button
-                  {...scaleOnHover}
-                  onClick={(e) => handleScrollToSection(e, "projects")}
-                  onKeyDown={(e) => e.key === "Enter" && handleScrollToSection(e, "projects")}
-                  aria-label="View projects"
-                  className={`inline-flex items-center gap-2 rounded-full bg-purple-600 text-white px-6 py-3 shadow-md transition-transform duration-200 hover:scale-105 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-purple-400 focus:outline-none ${isDownloading ? "" : ""}`}
-                >
-                  <FontAwesomeIcon icon={faPlay} />
-                  View Projects
-                </motion.button> */}
-                <motion.button
-                  {...scaleOnHover}
-                  onClick={(e) => handleScrollToSection(e, "contact")}
-                  onKeyDown={(e) => e.key === "Enter" && handleScrollToSection(e, "contact")}
-                  aria-label="Contact me"
-                  className="inline-flex items-center gap-2 rounded-full border-2 border-purple-600 text-purple-600 px-6 py-3 shadow-md transition-all duration-200 hover:bg-purple-600 hover:text-white hover:shadow-lg focus-visible:ring-2 focus-visible:ring-purple-400 focus:outline-none"
-                >
-                  <FontAwesomeIcon icon={faEnvelope} />
-                  Contact Me
-                </motion.button>
-                <motion.button
-                  {...scaleOnHover}
-                  onClick={handleDownload}
-                  onKeyDown={(e) => e.key === "Enter" && handleDownload()}
-                  aria-label="Download CV"
-                  disabled={isDownloading}
-                  className={`inline-flex items-center gap-2 rounded-full bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 px-6 py-3 shadow-md transition-transform duration-200 hover:scale-105 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-gray-400 focus:outline-none ${isDownloading ? "opacity-80" : ""}`}
-                >
-                  <FontAwesomeIcon icon={faDownload} />
-                  {isDownloading ? "Downloading..." : "Download CV"}
-                </motion.button>
-              </div>
-              <motion.div variants={staggerContainer} className="grid grid-cols-3 sm:grid-cols-6 gap-3 sm:gap-4 mt-6">
-                {[SiReact, SiJavascript, SiTypescript, SiHtml5, SiCss3, SiNodedotjs].map((Icon, idx) => (
-                  <motion.div
-                    key={idx}
-                    {...scaleOnHover}
-                    className="flex items-center justify-center rounded-xl bg-white dark:bg-gray-900 shadow-sm hover:shadow-md transition-shadow px-3 py-3 focus-within:ring-2 focus-within:ring-purple-400"
-                    tabIndex={0}
-                    aria-label="Skill icon"
-                  >
-                    <Icon className="text-2xl text-purple-600" />
-                  </motion.div>
-                ))}
-              </motion.div>
-              <motion.div variants={staggerContainer} className="flex items-center gap-5 mt-6 justify-center lg:justify-start">
-                <motion.a
-                  variants={fadeInUp}
-                  href="https://github.com/mohannadnasreldin"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Open GitHub profile"
-                  className="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors transition-transform duration-200 hover:scale-110 focus-visible:ring-2 focus-visible:ring-purple-400 rounded"
-                >
-                  <FontAwesomeIcon icon={faGithub} size="lg" />
-                </motion.a>
-                <motion.a
-                  variants={fadeInUp}
-                  href="https://www.facebook.com/mohannad.nasraldin/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Open Facebook profile"
-                  className="text-gray-500 hover:text-blue-700 transition-colors transition-transform duration-200 hover:scale-110 focus-visible:ring-2 focus-visible:ring-purple-400 rounded"
-                >
-                  <FontAwesomeIcon icon={faFacebook} size="lg" />
-                </motion.a>
-                <motion.a
-                  variants={fadeInUp}
-                  href="https://www.instagram.com/anim._.honda/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Open Instagram profile"
-                  className="text-gray-500 hover:text-purple-700 transition-colors transition-transform duration-200 hover:scale-110 focus-visible:ring-2 focus-visible:ring-purple-400 rounded"
-                >
-                  <FontAwesomeIcon icon={faInstagram} size="lg" />
-                </motion.a>
-                <motion.a
-                  variants={fadeInUp}
-                  href="https://www.linkedin.com/in/mohannad-nasreldin/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Open LinkedIn profile"
-                  className="text-gray-500 hover:text-blue-500 transition-colors transition-transform duration-200 hover:scale-110 focus-visible:ring-2 focus-visible:ring-purple-400 rounded"
-                >
-                  <FontAwesomeIcon icon={faLinkedin} size="lg" />
-                </motion.a>
-                <motion.a
-                  variants={fadeInUp}
-                  href="https://wa.me/201287941698"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Open WhatsApp chat"
-                  className="text-gray-500 hover:text-green-600 transition-colors transition-transform duration-200 hover:scale-110 focus-visible:ring-2 focus-visible:ring-purple-400 rounded"
-                >
-                  <FontAwesomeIcon icon={faWhatsapp} size="lg" />
-                </motion.a>
-              </motion.div>
-              
-            </motion.div>
-          </div>
-          <motion.div
-            variants={fadeInUp}
-            {...revealProps}
-            className="mt-16 lg:mt-24 text-center"
-            style={{ willChange: "transform" }}
-          >
-            <h2 className="text-3xl font-semibold mb-8">Featured Work</h2>
-            <ProjectsCarousel items={featuredProjects} />
-          </motion.div>
-        </LazyMotion>
+              data-hero-blob
+              className="absolute rounded-full"
+              style={{
+                width: "min(480px, 50vw)",
+                height: "min(480px, 50vw)",
+                right: "-5%",
+                top: "5%",
+                background:
+                  "radial-gradient(circle, #0A1DCB 0%, #0816A3 50%, transparent 70%)",
+                filter: "blur(130px)",
+                opacity: 0.5,
+              }}
+              animate={{ x: [0, -50, 0], y: [0, 60, 0], scale: [1, 1.2, 1] }}
+              transition={{ duration: 26, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <motion.div
+              data-hero-blob
+              className="absolute rounded-full"
+              style={{
+                width: "min(420px, 45vw)",
+                height: "min(420px, 45vw)",
+                left: "35%",
+                bottom: "-10%",
+                background:
+                  "radial-gradient(circle, rgba(56,189,248,0.55) 0%, transparent 70%)",
+                filter: "blur(100px)",
+              }}
+              animate={{ opacity: [0.35, 0.65, 0.35], scale: [1, 1.25, 1] }}
+              transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+            />
+          </>
+        )}
       </div>
+
+      <div
+        data-hero-strips
+        className="pointer-events-none absolute inset-0 z-[1] flex"
+        aria-hidden="true"
+      >
+        {Array.from({ length: 14 }).map((_, i) => (
+          <div
+            key={i}
+            className="h-full flex-1 animate-refraction"
+            style={{
+              background:
+                "linear-gradient(90deg, rgba(217,217,217,0) 0%, rgba(0,0,0,0.45) 76%, rgba(255,255,255,0.22) 100%)",
+              mixBlendMode: "overlay",
+              animationDelay: `${i * 0.12}s`,
+              opacity: 0.45,
+            }}
+          />
+        ))}
+      </div>
+
+      <div ref={sceneRef} className="absolute inset-0 z-0">
+        <HeroScene3D />
+      </div>
+      <div className="noise-overlay absolute inset-0 z-[2]" aria-hidden="true" />
+
+      <div
+        ref={contentRef}
+        className="relative z-10 mx-auto flex w-full max-w-6xl flex-col px-4 pb-28 pt-32 sm:px-6 lg:px-8 lg:pt-36"
+      >
+        <LiquidGlassLens width={160} height={160} borderRadius={80} blur={1.5} />
+
+        <div className="max-w-2xl">
+          <motion.p
+            initial={reduce ? false : { opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="mb-4 text-sm font-medium uppercase tracking-[0.28em] text-accent"
+          >
+            00 — Prologue
+          </motion.p>
+
+          <h1
+            id="hero-heading"
+            className="font-display text-5xl font-extrabold leading-[1.05] tracking-tight text-ink sm:text-6xl md:text-7xl lg:text-8xl"
+          >
+            {nameWords.map((word, i) => (
+              <motion.span
+                key={word}
+                className="mr-3 inline-block last:mr-0"
+                initial={reduce ? false : { opacity: 0, y: 48 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  delay: 0.12 + i * 0.14,
+                  duration: 0.7,
+                  type: "spring",
+                  stiffness: 90,
+                }}
+              >
+                <span className={i === 1 ? "text-gradient" : ""}>{word}</span>
+              </motion.span>
+            ))}
+          </h1>
+
+          <motion.p
+            initial={reduce ? false : { opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.45, duration: 0.55 }}
+            className="mt-5 text-xl font-medium text-accent-soft sm:text-2xl"
+          >
+            <Typewriter
+              words={["Full-Stack Developer", "Problem Solver", "Systems Builder"]}
+              loop
+              cursor
+              cursorStyle="|"
+              typeSpeed={40}
+              deleteSpeed={28}
+              delaySpeed={2400}
+            />
+          </motion.p>
+
+          <motion.p
+            initial={reduce ? false : { opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.55 }}
+            className="mt-5 max-w-lg text-base leading-relaxed text-ink-muted sm:text-lg"
+          >
+            Scroll to follow the story — from craft and journey to work and
+            connection.
+          </motion.p>
+
+          <motion.div
+            initial={reduce ? false : { opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.75, duration: 0.5 }}
+            className="mt-9 flex flex-wrap items-center gap-3"
+          >
+            <button
+              type="button"
+              className="glass-btn-primary"
+              onClick={() => scrollTo("contact")}
+              aria-label="Contact me"
+            >
+              <EnvelopeIcon className="h-5 w-5" aria-hidden="true" />
+              Contact Me
+            </button>
+            <button
+              type="button"
+              className="glass-btn-ghost"
+              onClick={downloadCv}
+              disabled={downloading}
+              aria-label="Download CV"
+            >
+              <ArrowDownTrayIcon className="h-5 w-5" aria-hidden="true" />
+              {downloading ? "Downloading…" : "Download CV"}
+            </button>
+          </motion.div>
+
+          <motion.div
+            initial={reduce ? false : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.95, duration: 0.5 }}
+            className="mt-10 flex items-center gap-4"
+          >
+            {socials.map(({ href, label, Icon }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Open ${label} profile`}
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-glass-border bg-glass-bg text-ink-muted transition-all duration-200 hover:border-accent/50 hover:text-accent hover:shadow-glow"
+              >
+                <Icon className="h-5 w-5" aria-hidden="true" />
+              </a>
+            ))}
+          </motion.div>
+        </div>
+      </div>
+
+      {!reducedMotion ? (
+        <button
+          type="button"
+          onClick={() => scrollTo("services")}
+          className="story-scroll-hint absolute bottom-10 left-1/2 z-20 flex -translate-x-1/2 flex-col items-center gap-2 text-ink-faint transition-colors hover:text-accent"
+          aria-label="Scroll to begin the story"
+        >
+          <span className="text-[10px] font-medium uppercase tracking-[0.3em]">
+            Scroll
+          </span>
+          <ChevronDownIcon className="h-5 w-5 animate-bounce" aria-hidden="true" />
+        </button>
+      ) : null}
+
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-[5] h-48 bg-gradient-to-t from-surface-deep via-surface-deep/40 to-transparent"
+        aria-hidden="true"
+      />
     </section>
   );
 };

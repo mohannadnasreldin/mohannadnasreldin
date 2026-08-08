@@ -1,64 +1,70 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useMemo, useState } from "react";
 import PropTypes from "prop-types";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
+import { FaGithub } from "react-icons/fa";
+import GlassPanel from "./ui/GlassPanel";
+import StoryHeading from "./story/StoryHeading";
+import FluidSection from "./FluidSection";
+import FluidReveal from "./FluidReveal";
 import bmi from "../assets/BMI-Calculator-App.png";
 import TDL from "../assets/To-Do-List.png";
 import ecommerce from "../assets/E-commerce.png";
 import city from "../assets/City Organization.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import kanHolland from "../assets/Kan-Holland.png";
 
-// Register the ScrollTrigger plugin
-gsap.registerPlugin(ScrollTrigger);
-
-// Updated projects array with demo and GitHub links
 const projects = [
   {
+    title: "Kan Holland K9",
+    category: "Frontend",
+    imageUrl: kanHolland,
+    demoLink: "https://www.kanholland.com/",
+    githubLink: null,
+  },
+  {
     title: "City Organization",
-    category: "Frontend Development",
+    category: "Frontend",
     imageUrl: city,
     demoLink: "https://city-development-association.vercel.app/",
-    githubLink: "https://github.com/mohannadnasreldin/city-organization"
+    githubLink: "https://github.com/mohannadnasreldin/city-organization",
   },
   {
     title: "BMI Calculator",
-    category: "Frontend Development",
+    category: "Frontend",
     imageUrl: bmi,
     demoLink: "https://bmi-calculator-app-henna.vercel.app/",
     githubLink: "https://github.com/mohannadnasreldin/bmi-calculator-app",
   },
   {
     title: "To-Do List",
-    category: "Frontend Development",
+    category: "Frontend",
     imageUrl: TDL,
     demoLink: "https://to-do-list-eight-mauve.vercel.app/",
     githubLink: "https://github.com/mohannadnasreldin/to-do-list",
   },
   {
     title: "E-Commerce UI",
-    category: "Frontend Development",
+    category: "Frontend",
     imageUrl: ecommerce,
     demoLink: null,
     githubLink: "https://github.com/mohannadnasreldin/E-Commerce-UI",
   },
   {
     title: "E-Commerce Core",
-    category: "Backend Development",
+    category: "Backend",
     imageUrl: null,
     demoLink: null,
     githubLink: "https://github.com/mohannadnasreldin/E-Commerce-Core",
   },
   {
     title: "Ecommerce Sentiment Analysis",
-    category: "Backend Development",
+    category: "Backend",
     imageUrl: null,
     demoLink: null,
     githubLink: "https://github.com/mohannadnasreldin/E-commerce_Sentiment_Analysis",
   },
   {
     title: "Dining Philosopher Solution",
-    category: "Backend Development",
+    category: "Backend",
     imageUrl: null,
     demoLink: null,
     githubLink: "https://github.com/mohannadnasreldin/DiningPhilisopher_Solution",
@@ -76,123 +82,143 @@ const projects = [
     imageUrl: null,
     demoLink: null,
     githubLink: "https://github.com/mohannadnasreldin/Information_Retrieval",
-  },  {
+  },
+  {
     title: "Graphics Package",
-    category: "Backend Development",
+    category: "Backend",
     imageUrl: null,
     demoLink: null,
     githubLink: "https://github.com/mohannadnasreldin/Graphics_Package",
   },
 ];
 
-/**
- * Projects section
- * @param {{ id?: string }} props
- */
+const FILTERS = ["All", "Frontend", "Backend", "Machine Learning"];
+
 const Projects = ({ id = "projects" }) => {
-  const sectionRef = useRef(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [filter, setFilter] = useState("All");
 
-  useEffect(() => {
-    setIsLoading(false);
-    setError(null);
-    const elements = sectionRef.current.querySelectorAll('.project-card');
-
-    elements.forEach((element, index) => {
-      gsap.fromTo(
-        element,
-        { opacity: 0, y: 50 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1.5,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: element,
-            start: "top 80%",
-            end: "top 30%",
-            scrub: true,
-            once: true,
-          },
-        }
-      );
-    });
-  }, []);
+  const visible = useMemo(
+    () =>
+      filter === "All"
+        ? projects
+        : projects.filter((p) => p.category === filter),
+    [filter]
+  );
 
   return (
-    <section
-      ref={sectionRef}
-      id={id}
-      className="py-20 px-4 bg-gray-100 dark:bg-black"
-    >
-      <div className="container mx-auto">
-        <h2 className="text-3xl font-bold mb-8 text-center text-gray-900 dark:text-gray-100">
-          Projects
-        </h2>
-        {error && (
-          <div role="alert" className="mx-auto mb-6 max-w-md rounded bg-red-100 text-red-800 px-4 py-3">
-            Failed to load projects.
-          </div>
-        )}
-        {isLoading && (
-          <div className="flex justify-center items-center my-8">
-            <div className="loader" aria-label="Loading projects"></div>
-          </div>
-        )}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className="project-card bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105"
+    <FluidSection id={id} labelledBy="projects-heading" drift={20}>
+      <StoryHeading
+        id="projects-heading"
+        chapter={3}
+        chapterLabel="Selected Work"
+        title="Projects"
+        subtitle="Selected work across frontend, backend, and machine learning."
+      />
+
+      <FluidReveal y={20} scrub={0.5}>
+        <div
+          className="mb-10 flex flex-wrap justify-center gap-2"
+          role="tablist"
+          aria-label="Filter projects by category"
+        >
+          {FILTERS.map((item) => {
+            const active = filter === item;
+            return (
+              <button
+                key={item}
+                type="button"
+                role="tab"
+                aria-selected={active}
+                onClick={() => setFilter(item)}
+                className={`rounded-full px-4 py-2 text-sm font-medium transition-all duration-200 ${
+                  active
+                    ? "bg-accent text-white shadow-glow"
+                    : "glass-panel text-ink-muted hover:text-accent"
+                }`}
+              >
+                {item}
+              </button>
+            );
+          })}
+        </div>
+      </FluidReveal>
+
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+        {visible.map((project, index) => (
+          <FluidReveal
+            key={project.title}
+            y={56}
+            x={index % 2 === 0 ? -40 : 40}
+            scaleFrom={0.88}
+            rotate={index % 2 === 0 ? -2 : 2}
+            scrub={0.75}
+          >
+            <GlassPanel
+              hover
+              className="group flex h-full flex-col overflow-hidden rounded-2xl"
             >
-              {project.imageUrl ? (
-                <img
-                  src={project.imageUrl}
-                  alt={project.title}
-                  className="w-full h-56 object-cover"
-                  loading="lazy"
-                />
-              ) : (
-                <div className="w-full h-56 bg-gray-200 dark:bg-gray-800 flex items-center justify-center text-gray-500 dark:text-gray-400 text-lg font-semibold">
-                  No Image Available
-                </div>
-              )}
-              <div className="p-6">
-                <h3 className="text-2xl font-semibold mb-3">{project.title}</h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-5">
+              <div className="relative aspect-[16/10] overflow-hidden bg-surface-raised/40">
+                {project.imageUrl ? (
+                  <img
+                    src={project.imageUrl}
+                    alt={project.title}
+                    className="h-full w-full object-cover transition-transform duration-500 ease-expo group-hover:scale-105"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-accent/10 via-transparent to-accent/5">
+                    <span className="font-display text-lg text-ink-faint">
+                      {project.category}
+                    </span>
+                  </div>
+                )}
+                <span className="absolute left-3 top-3 rounded-full border border-glass-border bg-black/40 px-3 py-1 text-xs font-medium text-white backdrop-blur-md">
                   {project.category}
-                </p>
-                <div className="flex justify-between items-center">
-                  {project.demoLink && (
+                </span>
+              </div>
+
+              <div className="flex flex-1 flex-col p-5">
+                <h3 className="font-display text-xl font-semibold text-ink">
+                  {project.title}
+                </h3>
+                <div className="mt-auto flex items-center gap-3 pt-5">
+                  {project.demoLink ? (
                     <a
                       href={project.demoLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-block bg-purple-500 text-white px-5 py-2 rounded shadow hover:bg-purple-600"
+                      className="glass-btn-primary !px-4 !py-2 text-sm"
                     >
                       Live Demo
+                      <ArrowTopRightOnSquareIcon
+                        className="h-4 w-4"
+                        aria-hidden="true"
+                      />
                     </a>
-                  )}
-                  <a
-                    href={project.githubLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block bg-gray-700 text-white px-5 py-2 rounded shadow hover:bg-gray-500"
-                  >
-                    <FontAwesomeIcon icon={faGithub} className="w-5 h-5" />
-                  </a>
+                  ) : null}
+                  {project.githubLink ? (
+                    <a
+                      href={project.githubLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`View ${project.title} on GitHub`}
+                      className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-glass-border bg-glass-bg text-ink transition-colors hover:border-accent/50 hover:text-accent"
+                    >
+                      <FaGithub className="h-5 w-5" aria-hidden="true" />
+                    </a>
+                  ) : null}
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            </GlassPanel>
+          </FluidReveal>
+        ))}
       </div>
-    </section>
+    </FluidSection>
   );
 };
 
-export default Projects;
 Projects.propTypes = {
   id: PropTypes.string,
 };
+
+export default Projects;

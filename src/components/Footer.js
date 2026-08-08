@@ -1,77 +1,71 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faGithub,
-  faFacebook,
-  faInstagram,
-  faLinkedin,
-  faWhatsapp,
-} from "@fortawesome/free-brands-svg-icons";
+  FaGithub,
+  FaFacebook,
+  FaInstagram,
+  FaLinkedin,
+  FaWhatsapp,
+} from "react-icons/fa";
+import { useFluidScroll } from "../context/FluidScrollContext";
 
-/**
- * Footer component
- * @param {{ year?: number }} props
- */
+const socials = [
+  { href: "https://github.com/mohannadnasreldin", label: "GitHub", Icon: FaGithub },
+  {
+    href: "https://www.facebook.com/mohannad.nasraldin/",
+    label: "Facebook",
+    Icon: FaFacebook,
+  },
+  {
+    href: "https://www.instagram.com/anim._.honda/",
+    label: "Instagram",
+    Icon: FaInstagram,
+  },
+  {
+    href: "https://www.linkedin.com/in/mohannad-nasreldin/",
+    label: "LinkedIn",
+    Icon: FaLinkedin,
+  },
+  { href: "https://wa.me/201287941698", label: "WhatsApp", Icon: FaWhatsapp },
+];
+
 const Footer = ({ year = new Date().getFullYear() }) => {
+  const { scrollTo } = useFluidScroll();
+
   return (
-    <footer className="bg-gray-200 dark:bg-black text-gray-800 dark:text-white py-4">
-      <div className="container mx-auto text-center">
-        <p>
-          &copy; {year} Mohannad Nasreldin. All rights
-          reserved.
+    <footer className="relative z-10 border-t border-glass-border/60 bg-transparent px-4 py-10">
+      <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 text-center">
+        <p className="text-sm text-ink-muted">
+          &copy; {year} Mohannad Nasreldin. All rights reserved.
         </p>
-        <div className="mt-5 flex justify-center space-x-12">
-          <a
-            href="https://github.com/mohannadnasreldin"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-400 hover:text-gray-900 dark:hover:text-white"
-          >
-            <FontAwesomeIcon icon={faGithub} size="2x" />
-          </a>
-          <a
-            href="https://www.facebook.com/mohannad.nasraldin/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-400 hover:text-blue-700"
-          >
-            <FontAwesomeIcon icon={faFacebook} size="2x" />
-          </a>
-          <a
-            href="https://www.instagram.com/anim._.honda/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-400 hover:text-purple-700"
-          >
-            <FontAwesomeIcon icon={faInstagram} size="2x" />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/mohannad-nasreldin/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-400 hover:text-blue-500"
-          >
-            <FontAwesomeIcon icon={faLinkedin} size="2x" />
-          </a>
-          <a
-            href="https://wa.me/201287941698"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-400 hover:text-green-500"
-          >
-            <FontAwesomeIcon icon={faWhatsapp} size="2x" />
-          </a>
+        <div className="flex items-center gap-4">
+          {socials.map(({ href, label, Icon }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={label}
+              className="text-ink-faint transition-colors hover:text-accent"
+            >
+              <Icon className="h-5 w-5" aria-hidden="true" />
+            </a>
+          ))}
         </div>
-        <div className="mt-4">
-          <a href="#contact" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white mx-2">Contact Us</a>
-        </div>
+        <button
+          type="button"
+          className="text-sm text-ink-muted transition-colors hover:text-accent"
+          onClick={() => scrollTo("contact")}
+        >
+          Contact
+        </button>
       </div>
     </footer>
   );
 };
 
-export default Footer;
 Footer.propTypes = {
   year: PropTypes.number,
 };
+
+export default Footer;

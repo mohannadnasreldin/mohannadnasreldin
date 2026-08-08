@@ -1,117 +1,97 @@
-import React, { useEffect, useRef } from 'react';
-import PropTypes from 'prop-types';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import React from "react";
+import PropTypes from "prop-types";
 import {
-  FaLaptopCode,
-  FaCamera,
-  FaServer,
-  FaCodeBranch,
-  FaDatabase,
-} from 'react-icons/fa';
-import { MdWeb, MdIntegrationInstructions } from 'react-icons/md';
-
-// Register the ScrollTrigger plugin
-gsap.registerPlugin(ScrollTrigger);
+  CodeBracketIcon,
+  ServerStackIcon,
+  RectangleGroupIcon,
+  ArrowsRightLeftIcon,
+  CircleStackIcon,
+  CommandLineIcon,
+  CameraIcon,
+  CpuChipIcon,
+} from "@heroicons/react/24/outline";
+import GlassPanel from "./ui/GlassPanel";
+import StoryHeading from "./story/StoryHeading";
+import FluidSection from "./FluidSection";
+import FluidReveal from "./FluidReveal";
 
 const services = [
   {
-    title: 'Software Engineering',
-    description: 'I develop robust and scalable Software applications.',
-    icon: FaLaptopCode,
+    title: "Software Engineering",
+    description: "Robust, scalable applications shaped around real product needs.",
+    Icon: CpuChipIcon,
   },
   {
-    title: 'Full Stack Engineer',
-    description: 'Expert in both front-end and back-end development to deliver complete solutions.',
-    icon: FaLaptopCode,
+    title: "Full-Stack Development",
+    description: "End-to-end delivery across modern frontends and APIs.",
+    Icon: CodeBracketIcon,
   },
   {
-    title: 'Backend Development',
-    description: 'Creating efficient server-side applications and APIs.',
-    icon: FaServer,
+    title: "Backend Development",
+    description: "Efficient server-side systems, services, and data flows.",
+    Icon: ServerStackIcon,
   },
   {
-    title: 'Frontend Development',
-    description: 'Developing interactive and responsive user interfaces.',
-    icon: MdWeb,
+    title: "Frontend Development",
+    description: "Responsive interfaces with clarity, motion, and accessibility.",
+    Icon: RectangleGroupIcon,
   },
   {
-    title: 'API Integration',
-    description: 'Connecting your app with third-party services and APIs.',
-    icon: MdIntegrationInstructions,
+    title: "API Integration",
+    description: "Reliable connections to third-party platforms and services.",
+    Icon: ArrowsRightLeftIcon,
   },
   {
-    title: 'Database Management',
-    description: 'Designing and managing efficient database systems.',
-    icon: FaDatabase,
+    title: "Database Management",
+    description: "Thoughtful schema design and performant data access.",
+    Icon: CircleStackIcon,
   },
   {
-    title: 'Version Control',
-    description: 'Utilizing version control systems like Git for efficient collaboration.',
-    icon: FaCodeBranch,
+    title: "Version Control",
+    description: "Clean Git workflows for collaboration and safe iteration.",
+    Icon: CommandLineIcon,
   },
   {
-    title: 'Photography',
-    description: 'I Shoot and Edit your Photos.',
-    icon: FaCamera,
+    title: "Photography",
+    description: "Capture and edit visuals that support brand storytelling.",
+    Icon: CameraIcon,
   },
 ];
 
-/**
- * Services section
- * @param {{ id?: string }} props
- */
-const Services = ({ id = 'services' }) => {
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const elements = sectionRef.current.querySelectorAll('.service-card');
-
-    elements.forEach((element, index) => {
-      gsap.fromTo(
-        element,
-        { opacity: 0, y: 50 }, // Start state: hidden and slightly down
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: element, // Element that triggers the animation
-            start: 'top 80%', // Start when the top of the element is 80% down the viewport
-            end: 'top 30%', // End when the top of the element reaches 30% of the viewport
-            scrub: true,
-          },
-          delay: index * 0.2, // Stagger the animations for each card
-        }
-      );
-    });
-  }, []);
-
+const Services = ({ id = "services" }) => {
   return (
-    <section ref={sectionRef} id={id} className="py-20 px-4 bg-gray-100 dark:bg-black">
-      <div className="container mx-auto">
-        <h2 className="text-3xl font-bold mb-8 text-center text-gray-900 dark:text-gray-100">
-          Services
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className="service-card bg-white dark:bg-gray-900 p-6 shadow-lg rounded-lg text-center"
-            >
-              <service.icon className="text-4xl mb-4 text-purple-500 mx-auto" />
-              <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-gray-100">
+    <FluidSection id={id} labelledBy="services-heading">
+      <StoryHeading
+        id="services-heading"
+        chapter={1}
+        chapterLabel="Capabilities"
+        title="Services"
+        subtitle="How I help teams ship polished software and memorable experiences."
+      />
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {services.map((service, index) => (
+          <FluidReveal
+            key={service.title}
+            y={40 + (index % 2) * 12}
+            x={index % 2 === 0 ? -24 : 24}
+            scaleFrom={0.9}
+            scrub={0.7}
+          >
+            <GlassPanel hover className="flex h-full flex-col rounded-2xl p-6">
+              <span className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl border border-glass-border bg-glass-tint text-accent">
+                <service.Icon className="h-5 w-5" aria-hidden="true" />
+              </span>
+              <h3 className="font-display text-lg font-semibold text-ink">
                 {service.title}
               </h3>
-              <p className="text-gray-600 dark:text-gray-400">
+              <p className="mt-2 text-sm leading-relaxed text-ink-muted">
                 {service.description}
               </p>
-            </div>
-          ))}
-        </div>
+            </GlassPanel>
+          </FluidReveal>
+        ))}
       </div>
-    </section>
+    </FluidSection>
   );
 };
 
