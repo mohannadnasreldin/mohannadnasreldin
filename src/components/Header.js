@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Bars3Icon, MoonIcon, SunIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useTheme } from "../context/ThemeContext";
 import { useFluidScroll } from "../context/FluidScrollContext";
-import logo from "../assets/Letter M.webp";
+import logo from "../assets/LetterM.webp";
 
 const NAV = [
   { id: "services", label: "Services" },

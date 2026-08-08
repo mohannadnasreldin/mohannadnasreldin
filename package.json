@@ -8,6 +8,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@heroicons/react": "^2.2.0",
+    "@splinetool/react-spline": "^4.1.0",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.9",
     "@tailwindcss/line-clamp": "^0.4.4",
@@ -28,19 +29,18 @@
     "react-simple-typewriter": "^5.0.1",
     "resolve-url-loader": "^5.0.0",
     "svgo": "^4.0.0",
-    "swiper": "^11.1.15",
+    "swiper": "^12.1.4",
     "tailwindcss-filters": "^3.0.0",
     "three": "^0.171.0",
     "typescript": "^4.9.5",
-    "web-vitals": "^4.2.4",
-    "webpack-dev-server": "^5.2.2"
+    "web-vitals": "^4.2.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "test:ci": "react-scripts test --watchAll=false --ci --coverage --passWithNoTests",
-    "lint": "eslint \"src/**/*.{js,jsx}\"",
+    "lint": "eslint src --ext .js,.jsx",
     "ci": "npm run lint && npm run test:ci && npm run build",
     "eject": "react-scripts eject"
   },
@@ -64,8 +64,11 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@types/node": "^25.6.1",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
     "autoprefixer": "^10.4.20",
-    "postcss": "^8.5.6",
+    "postcss": "^8.5.14",
     "tailwindcss": "^3.4.17"
   },
   "jest": {
@@ -75,5 +78,13 @@
       "^lenis$": "<rootDir>/src/test-utils/lenisMock.js",
       "^lenis/dist/lenis\\.css$": "<rootDir>/src/test-utils/styleMock.js"
     }
+  },
+  "overrides": {
+    "nth-check": "^2.1.1",
+    "postcss": "^8.5.14",
+    "serialize-javascript": "^7.0.5",
+    "underscore": "^1.13.8",
+    "@tootallnate/once": "^3.0.1",
+    "webpack-dev-server": "4.15.2"
   }
 }

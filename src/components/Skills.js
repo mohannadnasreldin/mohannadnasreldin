@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import {
   SiHtml5,
-  SiCss3,
+  SiCss,
   SiJavascript,
   SiReact,
   SiAngular,
@@ -24,7 +24,7 @@ import StoryParallax from "./story/StoryParallax";
 
 const skillsData = [
   { name: "HTML", Icon: SiHtml5 },
-  { name: "CSS", Icon: SiCss3 },
+  { name: "CSS", Icon: SiCss },
   { name: "JavaScript", Icon: SiJavascript },
   { name: "React", Icon: SiReact },
   { name: "Angular", Icon: SiAngular },

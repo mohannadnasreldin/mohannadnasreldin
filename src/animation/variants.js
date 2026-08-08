@@ -1,33 +1,88 @@
-export const fadeInUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+/**
+ * Animation variants for Framer Motion
+ */
+
+export const heroVariants = {
+  container: {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.08,
+        delayChildren: 0.5,
+      },
+    },
+  },
+  word: {
+    hidden: { y: 40, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        ease: [0.16, 1, 0.3, 1], // ease-out-expo
+      },
+    },
+  },
+  subtitle: {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.8,
+        ease: [0.16, 1, 0.3, 1],
+        delay: 1.2,
+      },
+    },
+  },
+  cta: {
+    hidden: { scale: 0.95, opacity: 0 },
+    visible: {
+      scale: 1,
+      opacity: 1,
+      transition: {
+        type: 'spring',
+        stiffness: 80,
+        damping: 15,
+        delay: 1.5,
+      },
+    },
   },
 };
 
-export const slideInRight = {
-  hidden: { opacity: 0, x: 24 },
-  visible: {
+export const revealVariants = {
+  hidden: { y: 60, opacity: 0 },
+  visible: (custom = 0) => ({
+    y: 0,
     opacity: 1,
-    x: 0,
-    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
-  },
+    transition: {
+      duration: 0.6,
+      ease: [0.16, 1, 0.3, 1],
+      delay: custom,
+    },
+  }),
 };
 
 export const staggerContainer = {
-  hidden: {},
+  hidden: { opacity: 0 },
   visible: {
-    transition: { staggerChildren: 0.08, delayChildren: 0.05 },
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.2,
+    },
   },
 };
 
-export const scaleOnHover = {
-  whileHover: { scale: 1.05 },
-  whileTap: { scale: 0.98 },
-};
-
-export const exitFade = {
-  exit: { opacity: 0, y: -12, transition: { duration: 0.3 } },
+export const cardVariants = {
+  hidden: { y: 40, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  },
 };
